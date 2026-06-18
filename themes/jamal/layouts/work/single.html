@@ -37,7 +37,7 @@
         <div class="mt-10 blog-content text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">{{ . }}</div>
         {{ end }}
         <div class="mt-12 space-y-8">
-            {{ range $i, $project := .Site.Data.open_source }}
+            {{ range $i, $project := hugo.Data.open_source }}
             <article class="opensource-project card sharp">
                 <div class="opensource-project-header">
                     <div class="opensource-project-heading">

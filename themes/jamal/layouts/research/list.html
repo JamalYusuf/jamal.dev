@@ -71,7 +71,7 @@
 
         <div class="research-index-panel" role="tabpanel" id="research-panel-themes" aria-labelledby="research-tab-themes" data-research-panel="themes" hidden>
             <div class="research-themes-grid">
-                {{ range site.Data.research_themes.core_themes }}
+                {{ range hugo.Data.research_themes.core_themes }}
                 <div class="research-theme-card card sharp">
                     <h3 class="research-theme-title">{{ .title }}</h3>
                     <p class="text-sm text-muted">{{ .description }}</p>

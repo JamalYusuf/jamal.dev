@@ -4,7 +4,7 @@
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-md">{{ .Params.summary }}</p>
 
     <div class="grid md:grid-cols-2 gap-6 mt-12">
-        {{ range .Site.Data.work_areas }}
+        {{ range hugo.Data.work_areas }}
         <a href="{{ .url | relURL }}" class="card sharp p-10 cursor-pointer group block">
             <div class="flex justify-between items-start">
                 <div>

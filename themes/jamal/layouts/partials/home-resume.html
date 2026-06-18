@@ -1,4 +1,4 @@
-{{ $resume := site.Data.resume }}
+{{ $resume := hugo.Data.resume }}
 {{ $aboutURL := "/about/" | relURL }}
 {{ $summary := $resume.summary | strings.TrimSpace }}
 {{ $summaryParts := split $summary "end to end. " }}

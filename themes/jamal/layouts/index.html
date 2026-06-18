@@ -105,7 +105,7 @@
             <div class="home-focus-group">
                 <p class="section-label home-focus-group-label">Research & Cognition</p>
                 <div class="home-focus-grid">
-                    {{ range $index, $item := where site.Data.featured_areas "category" "research" }}
+                    {{ range $index, $item := where hugo.Data.featured_areas "category" "research" }}
                     <a href="{{ $item.url | relURL }}" class="focus-area-card group">
                         <div class="focus-area-card-head">
                             <span class="focus-area-index font-mono">{{ printf "%02d" (add $index 1) }}</span>
@@ -125,7 +125,7 @@
             <div class="home-focus-group">
                 <p class="section-label home-focus-group-label">Platforms & Practice</p>
                 <div class="home-focus-grid">
-                    {{ range $index, $item := where site.Data.featured_areas "category" "practice" }}
+                    {{ range $index, $item := where hugo.Data.featured_areas "category" "practice" }}
                     <a href="{{ $item.url | relURL }}" class="focus-area-card group">
                         <div class="focus-area-card-head">
                             <span class="focus-area-index font-mono">{{ printf "%02d" (add $index 3) }}</span>
