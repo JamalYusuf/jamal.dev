@@ -1,4 +1,4 @@
-# JYV3 — Jamal.dev
+# Jamal.dev
 
 **Version 1.0.0**
 
