@@ -91,3 +91,7 @@ pygmentsCodeFences = true
   name = "Speaking"
   url = "/speaking/"
   weight = 6
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
