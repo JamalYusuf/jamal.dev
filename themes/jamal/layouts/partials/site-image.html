@@ -1,0 +1,19 @@
+{{- $src := .src -}}
+{{- $alt := .alt | default site.Params.author -}}
+{{- $class := .class | default "img-sharp" -}}
+{{- $resize := .resize -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- with resources.Get $src -}}
+  {{- $img := . -}}
+  {{- if $resize -}}
+    {{- $useFill := and (in $resize "x") (not (hasSuffix $resize "x")) (not (hasPrefix $resize "x")) -}}
+    {{- if $useFill -}}
+      {{- $img = .Fill $resize -}}
+    {{- else -}}
+      {{- $img = .Resize $resize -}}
+    {{- end -}}
+  {{- end -}}
+  <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}" loading="{{ $loading }}" width="{{ $img.Width }}" height="{{ $img.Height }}">
+{{- else -}}
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" class="{{ $class }}" loading="{{ $loading }}">
+{{- end -}}

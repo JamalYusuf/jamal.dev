@@ -1,0 +1,203 @@
+/**
+ * Precision Crosshair Cursor — full-screen lines, opacity reveals lock-on.
+ * Same accent red; normal/idle fade at edges, target shows more of the crosshair.
+ */
+
+:root {
+    --crosshair-gap: 26px;
+    --crosshair-weight: 2px;
+    --crosshair-color: var(--primary, #dc0000);
+    --crosshair-peak: 0.38;
+    --crosshair-fade-end: 18%;
+}
+
+html.crosshair-cursor-enabled,
+html.crosshair-cursor-enabled * {
+    cursor: none !important;
+}
+
+.crosshair-cursor {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+.crosshair-cursor.is-hidden {
+    opacity: 0;
+}
+
+/* Normal — same red, low peak, tight fade (mostly hidden fullscreen lines) */
+.crosshair-cursor.is-active {
+    --crosshair-color: var(--primary, #dc0000);
+    --crosshair-peak: 0.38;
+    --crosshair-fade-end: 18%;
+}
+
+/* Idle — muted, very faint */
+.crosshair-cursor.is-idle {
+    --crosshair-color: var(--muted-fg, #666666);
+    --crosshair-peak: 0.12;
+    --crosshair-fade-end: 14%;
+}
+
+/* Lock-on — same red, high peak, wide fade (full crosshair visible) */
+.crosshair-cursor.is-target {
+    --crosshair-color: var(--primary, #dc0000);
+    --crosshair-peak: 0.95;
+    --crosshair-fade-end: 62%;
+}
+
+.dark .crosshair-cursor.is-active,
+.dark .crosshair-cursor.is-target {
+    --crosshair-color: var(--primary, #ff0000);
+}
+
+.crosshair-cursor__segment,
+.crosshair-cursor__ring {
+    position: fixed;
+    pointer-events: none;
+}
+
+.crosshair-cursor__segment {
+    box-shadow: none;
+    transition: background 0.18s ease;
+}
+
+.crosshair-cursor__segment--top,
+.crosshair-cursor__segment--bottom {
+    width: var(--crosshair-weight);
+    transform: translateX(-50%);
+}
+
+.crosshair-cursor__segment--left,
+.crosshair-cursor__segment--right {
+    height: var(--crosshair-weight);
+    transform: translateY(-50%);
+}
+
+/* Peak opacity at cursor; fades to invisible toward screen edges */
+.crosshair-cursor__segment--top {
+    background: linear-gradient(
+        to top,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 100%), transparent) 0%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 50%), transparent) 5%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 18%), transparent) 10%,
+        transparent var(--crosshair-fade-end)
+    );
+}
+
+.crosshair-cursor__segment--bottom {
+    background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 100%), transparent) 0%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 50%), transparent) 5%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 18%), transparent) 10%,
+        transparent var(--crosshair-fade-end)
+    );
+}
+
+.crosshair-cursor__segment--left {
+    background: linear-gradient(
+        to left,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 100%), transparent) 0%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 50%), transparent) 5%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 18%), transparent) 10%,
+        transparent var(--crosshair-fade-end)
+    );
+}
+
+.crosshair-cursor__segment--right {
+    background: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 100%), transparent) 0%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 50%), transparent) 5%,
+        color-mix(in srgb, var(--crosshair-color) calc(var(--crosshair-peak) * 18%), transparent) 10%,
+        transparent var(--crosshair-fade-end)
+    );
+}
+
+.crosshair-cursor__ring {
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--crosshair-color);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: none;
+    transform: translate(-50%, -50%);
+    opacity: var(--crosshair-peak);
+    transition: opacity 0.18s ease, border-color 0.15s ease;
+}
+
+.crosshair-toggle {
+    background-color: var(--switch);
+    border: 1px solid var(--border);
+    color: var(--muted-fg);
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.crosshair-toggle:hover {
+    background-color: var(--secondary);
+    color: var(--fg);
+}
+
+.crosshair-toggle.is-active {
+    color: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+    background-color: color-mix(in srgb, var(--primary) 8%, var(--switch));
+}
+
+.crosshair-cursor-hint {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    z-index: 2147483647;
+    padding: 0.5rem 0.875rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg, #0a0a0a);
+    background: var(--card, #f8f8f8);
+    border: 1px solid var(--border, #e0e0e0);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.5rem);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dark .crosshair-cursor-hint {
+    color: var(--fg, #ffffff);
+    background: var(--card, #0a0a0a);
+    border-color: var(--border, #333333);
+}
+
+.crosshair-cursor-hint.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .crosshair-cursor,
+    .crosshair-cursor__segment,
+    .crosshair-cursor__ring,
+    .crosshair-cursor-hint {
+        transition: none;
+    }
+}
+
+@media (pointer: coarse) {
+    html.crosshair-cursor-enabled,
+    html.crosshair-cursor-enabled * {
+        cursor: auto !important;
+    }
+
+    .crosshair-cursor,
+    .crosshair-cursor-hint,
+    .crosshair-toggle {
+        display: none !important;
+    }
+}

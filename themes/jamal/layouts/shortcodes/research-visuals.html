@@ -1,0 +1,2 @@
+{{ $type := .Get "type" | default "all" }}
+{{ partial "research-overview-visuals.html" (dict "type" $type) }}

@@ -1,0 +1,274 @@
+{{ $type := .type | default "all" }}
+{{ $show := dict
+    "perception" (or (eq $type "all") (eq $type "perception"))
+    "signals" (or (eq $type "all") (eq $type "signals"))
+    "structure" (or (eq $type "all") (eq $type "structure"))
+    "applications" (or (eq $type "all") (eq $type "applications"))
+    "findings" (or (eq $type "all") (eq $type "findings"))
+    "loop" (or (eq $type "all") (eq $type "loop"))
+}}
+
+{{ if index $show "perception" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-perception-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">01</span>
+        <div>
+            <p id="ri-visual-perception-title" class="ri-visual-title font-display">Same screen, two perceptions</p>
+            <p class="ri-visual-desc text-muted">Experts do not read faster — they forage differently. Structure surfaces before detail.</p>
+        </div>
+    </figcaption>
+    <div class="ri-perception-grid">
+        <div class="ri-perception-panel">
+            <span class="ri-perception-label font-mono">Novice view</span>
+            <div class="ri-perception-screen sharp">
+                <div class="ri-perception-ui">
+                    <span class="ri-perception-bar"></span>
+                    <span class="ri-perception-line"></span>
+                    <span class="ri-perception-line is-short"></span>
+                    <span class="ri-perception-line"></span>
+                    <span class="ri-perception-line is-short"></span>
+                </div>
+                <svg class="ri-perception-svg" viewBox="0 0 200 140" aria-hidden="true">
+                    <path class="ri-perception-path is-noise" d="M 24 18 L 42 32 L 28 48 L 56 62 L 38 78 L 72 88 L 48 104 L 88 118" />
+                    <circle class="ri-perception-dot" cx="24" cy="18" r="4" />
+                    <circle class="ri-perception-dot" cx="88" cy="118" r="4" />
+                </svg>
+            </div>
+            <span class="ri-perception-tag">Noise · sequential detail</span>
+        </div>
+        <div class="ri-perception-divider" aria-hidden="true">
+            <span class="font-mono">vs</span>
+        </div>
+        <div class="ri-perception-panel is-expert">
+            <span class="ri-perception-label font-mono">Expert view</span>
+            <div class="ri-perception-screen sharp">
+                <div class="ri-perception-ui">
+                    <span class="ri-perception-bar is-accent"></span>
+                    <span class="ri-perception-line is-accent"></span>
+                    <span class="ri-perception-node"></span>
+                    <span class="ri-perception-line"></span>
+                </div>
+                <svg class="ri-perception-svg" viewBox="0 0 200 140" aria-hidden="true">
+                    <path class="ri-perception-path is-expert" d="M 100 22 L 100 52 L 168 52 L 168 92 L 56 92" />
+                    <g class="ri-perception-step">
+                        <circle cx="100" cy="22" r="7" />
+                        <text x="114" y="26">1</text>
+                    </g>
+                    <g class="ri-perception-step">
+                        <circle cx="168" cy="52" r="7" />
+                        <text x="182" y="56">2</text>
+                    </g>
+                    <g class="ri-perception-step is-primary">
+                        <circle cx="56" cy="92" r="8" />
+                        <text x="70" y="96">3</text>
+                    </g>
+                </svg>
+            </div>
+            <span class="ri-perception-tag is-accent">Structure · hinge · lever</span>
+        </div>
+    </div>
+</figure>
+{{ end }}
+
+{{ if index $show "signals" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-signals-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">02</span>
+        <div>
+            <p id="ri-visual-signals-title" class="ri-visual-title font-display">Integrated signal streams</p>
+            <p class="ri-visual-desc text-muted">No single sensor tells the whole story — Expert Vision fuses perception, behavior, and outcomes.</p>
+        </div>
+    </figcaption>
+    <div class="ri-signals-flow">
+        <div class="ri-signals-inputs">
+            <div class="ri-signals-input sharp">
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                <span class="font-semibold text-sm">Eye-tracking</span>
+                <span class="text-xs text-muted">Gaze paths · AOI</span>
+            </div>
+            <div class="ri-signals-input sharp">
+                <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+                <span class="font-semibold text-sm">Bio-monitoring</span>
+                <span class="text-xs text-muted">Stress · arousal</span>
+            </div>
+            <div class="ri-signals-input sharp">
+                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+                <span class="font-semibold text-sm">Behavioral analytics</span>
+                <span class="text-xs text-muted">Choices · timing</span>
+            </div>
+            <div class="ri-signals-input sharp">
+                <i class="fa-solid fa-square-root-variable" aria-hidden="true"></i>
+                <span class="font-semibold text-sm">Statistical modeling</span>
+                <span class="text-xs text-muted">Transfer patterns</span>
+            </div>
+        </div>
+        <div class="ri-signals-merge" aria-hidden="true">
+            <span class="ri-signals-merge-line"></span>
+            <span class="ri-signals-merge-line"></span>
+            <span class="ri-signals-merge-line"></span>
+            <span class="ri-signals-merge-line"></span>
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+        <div class="ri-signals-core sharp">
+            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+            <span class="font-semibold">Expert Vision model</span>
+            <span class="text-xs text-muted">Decision choreography</span>
+        </div>
+        <div class="ri-signals-merge is-out" aria-hidden="true">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+        <div class="ri-signals-output sharp is-accent">
+            <i class="fa-solid fa-gears" aria-hidden="true"></i>
+            <span class="font-semibold">Systems engineering</span>
+            <span class="text-xs text-muted">Interfaces · training · agents</span>
+        </div>
+    </div>
+</figure>
+{{ end }}
+
+{{ if index $show "structure" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-structure-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">03</span>
+        <div>
+            <p id="ri-visual-structure-title" class="ri-visual-title font-display">Structure before detail</p>
+            <p class="ri-visual-desc text-muted">Most knowledge systems invert expert foraging — dense detail first, scaffolding buried.</p>
+        </div>
+    </figcaption>
+    <div class="ri-structure-compare">
+        <div class="ri-structure-doc sharp">
+            <span class="ri-structure-doc-label font-mono">Typical system</span>
+            <div class="ri-structure-doc-ui">
+                <span class="ri-structure-block is-muted"></span>
+                <span class="ri-structure-block is-muted"></span>
+                <span class="ri-structure-block is-muted is-wide"></span>
+                <span class="ri-structure-block is-muted"></span>
+            </div>
+            <ol class="ri-structure-order is-inverted">
+                <li>Detail</li>
+                <li>More detail</li>
+                <li>Structure (late)</li>
+            </ol>
+        </div>
+        <div class="ri-structure-doc is-expert sharp">
+            <span class="ri-structure-doc-label font-mono">Expert foraging</span>
+            <div class="ri-structure-doc-ui">
+                <span class="ri-structure-block is-accent"></span>
+                <span class="ri-structure-block is-link"></span>
+                <span class="ri-structure-block"></span>
+                <span class="ri-structure-block is-accent is-narrow"></span>
+            </div>
+            <ol class="ri-structure-order">
+                <li>Headers &amp; nav</li>
+                <li>Relationships</li>
+                <li>Target detail</li>
+            </ol>
+        </div>
+    </div>
+</figure>
+{{ end }}
+
+{{ if index $show "loop" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-loop-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">04</span>
+        <div>
+            <p id="ri-visual-loop-title" class="ri-visual-title font-display">Research-to-deployment loop</p>
+            <p class="ri-visual-desc text-muted">Measurement without application is incomplete — findings must compound in real systems.</p>
+        </div>
+    </figcaption>
+    <div class="ri-loop" role="img" aria-label="Observe, model, train, deploy cycle returning to observe">
+        <div class="ri-loop-step sharp" style="--i: 0;">
+            <span class="ri-loop-num font-mono">A</span>
+            <span class="font-semibold text-sm">Observe</span>
+            <span class="text-xs text-muted">Studies · telemetry</span>
+        </div>
+        <div class="ri-loop-step sharp" style="--i: 1;">
+            <span class="ri-loop-num font-mono">B</span>
+            <span class="font-semibold text-sm">Model</span>
+            <span class="text-xs text-muted">Scan paths · sequences</span>
+        </div>
+        <div class="ri-loop-step sharp" style="--i: 2;">
+            <span class="ri-loop-num font-mono">C</span>
+            <span class="font-semibold text-sm">Train</span>
+            <span class="text-xs text-muted">Perception drills</span>
+        </div>
+        <div class="ri-loop-step sharp is-accent" style="--i: 3;">
+            <span class="ri-loop-num font-mono">D</span>
+            <span class="font-semibold text-sm">Deploy</span>
+            <span class="text-xs text-muted">UI · agents · playbooks</span>
+        </div>
+        <div class="ri-loop-ring" aria-hidden="true"></div>
+        <div class="ri-loop-return font-mono" aria-hidden="true">feedback →</div>
+    </div>
+</figure>
+{{ end }}
+
+{{ if index $show "applications" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-apps-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">05</span>
+        <div>
+            <p id="ri-visual-apps-title" class="ri-visual-title font-display">Where patterns land</p>
+            <p class="ri-visual-desc text-muted">Transferable expertise becomes practical tools — not tribal lore in one senior engineer's head.</p>
+        </div>
+    </figcaption>
+    <div class="ri-apps-hub">
+        <div class="ri-apps-center sharp">
+            <span class="section-label">Patterns</span>
+            <span class="font-semibold">Expert choreography</span>
+        </div>
+        <div class="ri-apps-spokes">
+            <div class="ri-apps-spoke sharp">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                <span class="text-sm font-semibold">Training systems</span>
+                <span class="text-xs text-muted">How experts look</span>
+            </div>
+            <div class="ri-apps-spoke sharp">
+                <i class="fa-solid fa-display" aria-hidden="true"></i>
+                <span class="text-sm font-semibold">Decision-support UIs</span>
+                <span class="text-xs text-muted">Structure first</span>
+            </div>
+            <div class="ri-apps-spoke sharp">
+                <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                <span class="text-sm font-semibold">AI agent design</span>
+                <span class="text-xs text-muted">Expert retrieval</span>
+            </div>
+            <div class="ri-apps-spoke sharp">
+                <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+                <span class="text-sm font-semibold">Org learning</span>
+                <span class="text-xs text-muted">Distributed expertise</span>
+            </div>
+        </div>
+    </div>
+</figure>
+{{ end }}
+
+{{ if index $show "findings" }}
+<figure class="ri-visual card sharp" aria-labelledby="ri-visual-findings-title">
+    <figcaption class="ri-visual-head">
+        <span class="ri-visual-num font-mono">06</span>
+        <div>
+            <p id="ri-visual-findings-title" class="ri-visual-title font-display">What keeps recurring</p>
+            <p class="ri-visual-desc text-muted">Three findings across studies and engagements — perception is trainable when we study the right signals.</p>
+        </div>
+    </figcaption>
+    <div class="ri-findings-grid">
+        <div class="ri-finding sharp">
+            <span class="ri-finding-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+            <span class="ri-finding-num font-mono">1</span>
+            <p class="ri-finding-text"><strong>Structure before detail.</strong> Experts anchor on scaffolding; most systems invert that order.</p>
+        </div>
+        <div class="ri-finding sharp">
+            <span class="ri-finding-icon" aria-hidden="true"><i class="fa-solid fa-route"></i></span>
+            <span class="ri-finding-num font-mono">2</span>
+            <p class="ri-finding-text"><strong>Pre-trained scan paths.</strong> Calm under pressure correlates with practiced perception, not raw speed.</p>
+        </div>
+        <div class="ri-finding sharp">
+            <span class="ri-finding-icon" aria-hidden="true"><i class="fa-solid fa-shuffle"></i></span>
+            <span class="ri-finding-num font-mono">3</span>
+            <p class="ri-finding-text"><strong>Decision choreography.</strong> Transferable expertise lives in what gets noticed, when, and why.</p>
+        </div>
+    </div>
+</figure>
+{{ end }}

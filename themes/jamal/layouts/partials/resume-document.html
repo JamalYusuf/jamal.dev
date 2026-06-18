@@ -1,0 +1,209 @@
+{{ $r := site.Data.resume }}
+
+<article class="resume-doc">
+    <div class="resume-doc-inner">
+
+        <header class="resume-doc-header">
+            <div class="resume-doc-header-main">
+                <div class="resume-doc-badge font-mono">{{ $r.badge }}</div>
+                <h1 class="resume-doc-name font-display">{{ .Site.Params.author }}</h1>
+                <p class="resume-doc-title">{{ .Site.Params.tagline }}</p>
+                <p class="resume-doc-subtitle">{{ $r.subtitle }}</p>
+            </div>
+
+            <aside class="resume-doc-contact" aria-label="Contact information">
+                <div class="resume-doc-contact-label font-mono">Contact</div>
+                <ul class="resume-doc-contact-list">
+                    <li class="resume-doc-contact-item">{{ $r.location }}</li>
+                    <li class="resume-doc-contact-item">
+                        <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </li>
+                    <li class="resume-doc-contact-item">
+                        <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li class="resume-doc-contact-item">
+                        <a href="{{ "/" | relURL }}">Website</a>
+                    </li>
+                </ul>
+            </aside>
+        </header>
+
+        <section id="summary" class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Professional Summary</h2>
+            <div class="resume-doc-prose">
+                <p>{{ $r.summary }}</p>
+            </div>
+        </section>
+
+        <section id="highlights" class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Selected Impact Highlights</h2>
+            <div class="resume-doc-highlights-grid">
+                {{ range $r.highlights }}
+                <div class="resume-doc-card">
+                    <div class="resume-doc-bullet">
+                        {{ if .title }}<strong>{{ .title }}.</strong> {{ end }}{{ .text }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <section id="expertise" class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Core Expertise</h2>
+            <div class="resume-doc-expertise-grid">
+                {{ range $r.expertise }}
+                <div class="resume-doc-expertise-card">
+                    <h3 class="resume-doc-expertise-title">{{ .title }}</h3>
+                    <ul class="resume-doc-expertise-list">
+                        {{ range .items }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <section class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Leadership, Adoption &amp; Governance</h2>
+            <div class="resume-doc-card resume-doc-leadership">
+                <div class="resume-doc-leadership-grid">
+                    <div class="resume-doc-leadership-item">Organizational AI Transformation &amp; Change Leadership</div>
+                    <div class="resume-doc-leadership-item">AI Code Assistant Training &amp; Developer Enablement (Claude/OpenAI)</div>
+                    <div class="resume-doc-leadership-item">AI Governance Frameworks, Playbooks &amp; Architecture Standards</div>
+                    <div class="resume-doc-leadership-item">Cross-Functional Collaboration (Security, SRE, Product, Legal)</div>
+                    <div class="resume-doc-leadership-item">Mentoring, KT &amp; Capability Building</div>
+                    <div class="resume-doc-leadership-item">Responsible &amp; Inclusive AI Practices</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Employment History</h2>
+
+            <article class="resume-doc-job">
+                <header class="resume-doc-job-header">
+                    <div>
+                        <h3 class="resume-doc-job-title">Principal AI &amp; Backend Systems Consultant</h3>
+                        <p class="resume-doc-job-company">Jamal Yusuf LLC — Founder &amp; Independent Practice</p>
+                    </div>
+                    <time class="resume-doc-job-dates font-mono" datetime="2023-06">Jun 2023 — Present</time>
+                </header>
+
+                <div class="resume-doc-prose resume-doc-job-intro">
+                    <p>Founded and led an independent AI and cognitive systems research practice focused on understanding, modeling, and accelerating human expertise through a proprietary research framework: <strong>Expert Vision</strong>.</p>
+                    <p>My work combines AI, behavioral analytics, bio-monitoring technologies, statistical modeling, and systems engineering to investigate how experts perceive, process, and act on information in complex environments. The goal is to identify transferable patterns of expert performance and transform them into scalable learning, training, and decision-support systems.</p>
+                </div>
+
+                <div class="resume-doc-job-columns">
+                    <div class="resume-doc-job-column">
+                        <div class="resume-doc-column-label font-mono">Key Areas of Research</div>
+                        <ul class="resume-doc-job-list">
+                            <li>AI-Driven Learning Systems</li>
+                            <li>Expert Performance Modeling</li>
+                            <li>Competitive Gaming &amp; Esports Analytics</li>
+                            <li>Programming Language &amp; Software Engineering Analysis</li>
+                            <li>Film, Art, and Visual Cognition</li>
+                            <li>Cross-Cultural Cognition</li>
+                            <li>Web Design &amp; User Experience Research</li>
+                        </ul>
+                    </div>
+                    <div class="resume-doc-job-column">
+                        <div class="resume-doc-column-label font-mono">Core Expertise</div>
+                        <ul class="resume-doc-job-list">
+                            <li>Artificial Intelligence &amp; Machine Learning</li>
+                            <li>Cognitive Science &amp; Human Performance</li>
+                            <li>Behavioral Analytics</li>
+                            <li>Bio-Monitoring &amp; Data Collection</li>
+                            <li>Statistical Analysis &amp; Research Design</li>
+                            <li>Backend Systems Architecture</li>
+                            <li>Knowledge Transfer &amp; Learning Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="resume-doc-job">
+                <header class="resume-doc-job-header">
+                    <div>
+                        <h3 class="resume-doc-job-title">Principal Application Development Engineer</h3>
+                        <p class="resume-doc-job-company">Centene Corp — Remote, Charlotte, NC</p>
+                    </div>
+                    <time class="resume-doc-job-dates font-mono" datetime="2024-11/2026-05">Nov 2024 — May 2026</time>
+                </header>
+
+                <p class="resume-doc-job-intro">Led organization-wide Generative AI adoption initiatives, designing and deploying production AI agents integrated with real-time membership, payment, and claims pipelines.</p>
+
+                <ul class="resume-doc-job-list">
+                    <li class="resume-doc-bullet">Spearheaded the adoption of Databricks Lakehouse and Snowflake Cortex AI platforms, establishing feature stores, automated data quality monitoring, and AI-powered analytics that drove measurable improvements in data accuracy and team productivity across multiple engineering groups.</li>
+                    <li class="resume-doc-bullet">Served as a key incident commander, driving root-cause analysis and resolution for major company-wide outages.</li>
+                    <li class="resume-doc-bullet">Designed and scaled comprehensive AI code assistant enablement programs focused on Anthropic Claude / Claude Code and OpenAI, teaching advanced prompt engineering, agentic development patterns, and safe usage practices.</li>
+                    <li class="resume-doc-bullet">Built and championed enterprise AI governance frameworks, including guardrails, observability, cost controls, and architecture standards for LLM-powered systems.</li>
+                    <li class="resume-doc-bullet">Served as the primary AI + Cloud SME and technical bridge, translating 15+ years of distributed systems expertise into practical patterns for AI-integrated microservices on AWS Bedrock.</li>
+                </ul>
+            </article>
+
+            <article class="resume-doc-job">
+                <header class="resume-doc-job-header">
+                    <div>
+                        <h3 class="resume-doc-job-title">Lead Application Development Engineer</h3>
+                        <p class="resume-doc-job-company">Centene Corp — Remote, Charlotte, NC</p>
+                    </div>
+                    <time class="resume-doc-job-dates font-mono" datetime="2022-08/2024-11">Aug 2022 — Nov 2024</time>
+                </header>
+
+                <p class="resume-doc-job-intro">Rebuilt the team from a single engineer into a high-performing, collaborative 12-person engineering team responsible for mission-critical membership and payment APIs.</p>
+
+                <ul class="resume-doc-job-list">
+                    <li class="resume-doc-bullet">Rebuilt and scaled a high-performing 12-person team from a single contributor, owning mission-critical real-time membership and payment APIs.</li>
+                    <li class="resume-doc-bullet">Architected and delivered Kafka-based real-time event-driven data pipelines, establishing patterns for reliable, observable data flow that became core infrastructure for subsequent AI initiatives.</li>
+                    <li class="resume-doc-bullet">Restored system reliability and SLAs while mentoring engineers in architecture, distributed systems thinking, and clean code.</li>
+                    <li class="resume-doc-bullet">Led design, development, and ownership of membership and payment APIs supporting real-time data retrieval.</li>
+                </ul>
+            </article>
+
+            <article class="resume-doc-job">
+                <header class="resume-doc-job-header">
+                    <div>
+                        <h3 class="resume-doc-job-title">Senior Application Development Engineer</h3>
+                        <p class="resume-doc-job-company">Centene Corp — Remote, Charlotte, NC</p>
+                    </div>
+                    <time class="resume-doc-job-dates font-mono" datetime="2021-06/2022-08">Jun 2021 — Aug 2022</time>
+                </header>
+
+                <ul class="resume-doc-job-list">
+                    <li class="resume-doc-bullet">Designed, developed, tested, and maintained scalable and resilient technology solutions leveraging Go, MongoDB, Docker/Kubernetes, Rancher, Dynatrace, Elasticsearch.</li>
+                    <li class="resume-doc-bullet">Led initiatives for Data Warehouse and event-driven architectures utilizing MongoDB, Kafka, and PostgreSQL.</li>
+                    <li class="resume-doc-bullet">Collaborated with cross-functional teams on the architecture and design of complex microservices.</li>
+                    <li class="resume-doc-bullet">Engaged extensively with business stakeholders to translate technical concepts into actionable insights.</li>
+                </ul>
+            </article>
+
+            <article class="resume-doc-job">
+                <header class="resume-doc-job-header">
+                    <div>
+                        <h3 class="resume-doc-job-title">Previous Experience — Building the Foundation</h3>
+                        <p class="resume-doc-job-company">Spectrum / Comcast &amp; Eyegaze.com — Charlotte, NC</p>
+                    </div>
+                    <time class="resume-doc-job-dates font-mono" datetime="2012/2021">2012 — 2021</time>
+                </header>
+
+                <div class="resume-doc-prose resume-doc-job-intro">
+                    <p><strong>Sr. Go Backend Engineer (Contract)</strong> — Spectrum/Charter Communications &amp; Comcast (2019–2021): Built high-scale microservices and data pipelines (Kafka, large geospatial datasets) serving massive user bases. Helped teams rapidly adopt Go and modern architecture patterns while navigating privacy regulations (CCPA).</p>
+                    <p><strong>Software Engineer</strong> — Eyegaze.com / LC Technologies (2012–2018): Developed eye-tracking and cognitive systems with deep focus on accessibility (WCAG, Section 508), human-computer interaction, and inclusive design. Created developer policies and APIs for accessible applications.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="resume-doc-section">
+            <h2 class="resume-doc-section-title section-header">Go &amp; AI Systems Expertise</h2>
+            <div class="resume-doc-card resume-doc-panel">
+                <div class="resume-doc-prose">
+                    <p>Active member of the Go community since 2011 with production experience since 2013. I bring a unique combination of deep language mastery and modern AI integration: building reliable, observable, high-performance AI backend layers in Go — including concurrent multi-agent orchestration, resilient LLM clients with circuit breakers and retries, event-driven pipelines (Kafka) that feed RAG and agent systems, structured outputs, and clean integration with Databricks, Snowflake, and AWS Bedrock.</p>
+                    <p><strong>My philosophy:</strong> The best AI systems are those built on solid, understandable foundations that teams can trust and maintain. I advocate strongly for idiomatic Go, clean architecture, and long-lived code even as AI tooling evolves rapidly.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</article>

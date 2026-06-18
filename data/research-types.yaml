@@ -1,0 +1,20 @@
+- slug: expert-vision-framework
+  label: FRAMEWORK
+  title: Expert Vision
+  description: A proprietary framework combining AI, behavioral analytics, and cognitive science to model expert performance.
+- slug: eye-tracking-expert-perception
+  label: STUDIES
+  title: Eye-Tracking & Perception
+  description: How experts visually scan, prioritize, and extract signal from complex information environments.
+- slug: decision-making-under-pressure
+  label: COGNITION
+  title: Decision-Making Under Pressure
+  description: High-stakes decision patterns in mission-critical, competitive, and time-sensitive environments.
+- slug: human-ai-collaboration
+  label: APPLICATION
+  title: Human-AI Collaboration
+  description: Designing agentic systems and interfaces that amplify human expertise rather than abstract it.
+- slug: redline-design-system
+  label: DESIGN SYSTEM
+  title: REDLINE
+  description: A high-contrast, zero-radius design system built for precision, confident red accents, and production-ready web interfaces.

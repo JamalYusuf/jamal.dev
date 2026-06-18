@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="max-w-screen-2xl mx-auto px-8 py-16">
+    <h1 class="font-display text-6xl tracking-tighter mb-3">Work</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-md">{{ .Params.summary }}</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-12">
+        {{ range .Site.Data.work_areas }}
+        <a href="{{ .url | relURL }}" class="card sharp p-10 cursor-pointer group block">
+            <div class="flex justify-between items-start">
+                <div>
+                    <div class="text-xs tracking-widest font-medium" style="color: var(--primary);">{{ .number }}</div>
+                    <h3 class="font-display text-4xl tracking-tighter mt-2">{{ .title }}</h3>
+                </div>
+                <i class="fa-solid fa-arrow-right text-2xl group-hover:translate-x-1 transition mt-2"></i>
+            </div>
+            <p class="mt-6 text-gray-600 dark:text-gray-400">{{ .description }}</p>
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

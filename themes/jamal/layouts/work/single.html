@@ -1,0 +1,92 @@
+{{ define "main" }}
+{{ partial "section-detail-open.html" . }}
+
+        <h1 class="font-display text-5xl md:text-6xl tracking-tighter">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="mt-4 text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>{{ end }}
+
+        {{ if eq .File.BaseFileName "architecture" }}
+        <div class="mt-12 grid md:grid-cols-2 gap-x-12">
+            <div>
+                <h3 class="font-semibold text-xl mb-4">Philosophy</h3>
+                <div class="blog-content text-gray-600 dark:text-gray-300 leading-relaxed">{{ .Content }}</div>
+
+                <div class="mt-10">
+                    <h4 class="font-medium mb-3">Technical Domains</h4>
+                    <div class="flex flex-wrap gap-2">
+                        {{ range .Params.domains }}
+                        <span class="px-4 py-1 text-sm rounded-full" style="background-color: var(--secondary);">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 md:mt-0">
+                <h3 class="font-semibold text-xl mb-4">Selected Impact</h3>
+                <ul class="space-y-6 text-sm">
+                    {{ range $i, $item := .Params.impact }}
+                    <li class="flex gap-4">
+                        <span class="font-mono text-xs mt-1 w-5" style="color: var(--primary);">{{ printf "%02d" (add $i 1) }}</span>
+                        <span>{{ $item }}</span>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+        {{ else if eq .File.BaseFileName "open-source" }}
+        {{ with .Content }}
+        <div class="mt-10 blog-content text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">{{ . }}</div>
+        {{ end }}
+        <div class="mt-12 space-y-8">
+            {{ range $i, $project := .Site.Data.open_source }}
+            <article class="opensource-project card sharp">
+                <div class="opensource-project-header">
+                    <div class="opensource-project-heading">
+                        <span class="opensource-project-num font-mono">{{ printf "%02d" (add $i 1) }}</span>
+                        <div>
+                            <h3 class="opensource-project-title font-display">{{ $project.title }}</h3>
+                            <p class="opensource-project-tagline text-muted">{{ $project.description }}</p>
+                        </div>
+                    </div>
+                    <div class="opensource-project-badges">
+                        <span class="opensource-project-badge">{{ $project.tag }}</span>
+                        {{ with $project.stack }}
+                        <span class="opensource-project-stack font-mono">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ with $project.why }}
+                <p class="opensource-project-why">{{ . }}</p>
+                {{ end }}
+                {{ with $project.highlights }}
+                <ul class="opensource-project-highlights">
+                    {{ range . }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+                <div class="opensource-project-links">
+                    {{ with $project.github }}
+                    <a href="{{ . }}" class="opensource-project-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                    </a>
+                    {{ end }}
+                    {{ with $project.demo }}
+                    <a href="{{ . }}" class="opensource-project-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Try it
+                    </a>
+                    {{ end }}
+                    {{ with $project.chrome_store }}
+                    <a href="{{ . }}" class="opensource-project-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-chrome" aria-hidden="true"></i> Chrome Web Store
+                    </a>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="mt-12 blog-content text-gray-600 dark:text-gray-300">{{ .Content }}</div>
+        {{ end }}
+
+{{ partial "section-detail-close.html" . }}
+{{ end }}

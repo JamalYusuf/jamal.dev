@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="max-w-screen-2xl mx-auto px-8 py-24 text-center">
+    <h1 class="font-display text-4xl tracking-tighter">Let's connect</h1>
+    <p class="mt-4 text-muted max-w-lg mx-auto leading-relaxed">I am open to research collaboration, speaking, architecture partnerships, and principal engineering engagements. LinkedIn is the fastest path — email works too if you prefer a note in your own words.</p>
+    <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <a href="{{ .Site.Params.linkedin }}" class="inline-flex px-7 py-3.5 text-sm font-semibold btn-primary sharp items-center gap-2" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin text-sm"></i>
+            Connect on LinkedIn
+        </a>
+        <a href="mailto:{{ .Site.Params.contact_email }}" class="inline-flex px-7 py-3.5 text-sm font-semibold btn-outline sharp items-center gap-2">
+            <i class="fa-solid fa-envelope text-sm"></i>
+            Email
+        </a>
+    </div>
+</div>
+{{ end }}

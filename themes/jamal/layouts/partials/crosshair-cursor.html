@@ -1,0 +1,6 @@
+{{- if site.Params.crosshair_cursor | default true -}}
+{{- $css := resources.Get "css/crosshair-cursor.css" -}}
+{{- if $css -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- end -}}
+{{- end -}}

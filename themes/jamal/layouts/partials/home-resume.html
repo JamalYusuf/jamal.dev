@@ -1,0 +1,136 @@
+{{ $resume := site.Data.resume }}
+{{ $aboutURL := "/about/" | relURL }}
+{{ $summary := $resume.summary | strings.TrimSpace }}
+{{ $summaryParts := split $summary "end to end. " }}
+
+<section class="home-section home-section--resume" id="resume">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="section-intro">
+            <div class="max-w-2xl">
+                <div class="section-label">Credentials</div>
+                <h2 class="font-display text-3xl md:text-4xl tracking-tighter mt-2">Professional Background</h2>
+                <p class="mt-4 text-sm md:text-base text-muted leading-relaxed">
+                    Principal-level credentials at a glance — scan summary, impact, and experience in the tabs below.
+                </p>
+            </div>
+        </div>
+
+        <article class="resume-spotlight sharp">
+            <header class="resume-spotlight-hero">
+                <a href="{{ $aboutURL }}#resume" class="resume-spotlight-hero-cta btn-primary sharp px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2">
+                    Full Resume
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+
+                <figure class="resume-spotlight-photo sharp">
+                    {{ partial "site-image.html" (dict
+                        "src" site.Params.headshot_speaking
+                        "alt" site.Params.author
+                        "class" "resume-spotlight-photo-img"
+                        "resize" "520x"
+                        "loading" "lazy"
+                    ) }}
+                </figure>
+
+                <div class="resume-spotlight-identity">
+                    <p class="resume-spotlight-eyebrow">
+                        <span>{{ $resume.badge }}</span>
+                        {{ with $resume.location }}<span>{{ . }}</span>{{ end }}
+                    </p>
+                    <h3 class="resume-spotlight-name font-display">{{ site.Params.author }}</h3>
+                    <p class="resume-spotlight-role">{{ site.Params.tagline }}</p>
+                    <p class="resume-spotlight-focus">{{ $resume.subtitle }}</p>
+                </div>
+
+                <dl class="resume-spotlight-metrics" aria-label="Professional credentials">
+                    {{ range $resume.stats }}
+                    <div class="resume-spotlight-metric">
+                        <dt class="resume-spotlight-metric-value">{{ .value }}</dt>
+                        <dd class="resume-spotlight-metric-label">{{ .label }}</dd>
+                    </div>
+                    {{ end }}
+                </dl>
+            </header>
+
+            <div class="resume-spotlight-body">
+                <nav class="resume-spotlight-nav" role="tablist" aria-label="Resume sections">
+                    <a href="#resume-summary" id="resume-tab-summary" class="resume-spotlight-nav-link is-active" data-resume-anchor data-resume-tab role="tab" aria-selected="true" aria-controls="resume-summary">Summary</a>
+                    <a href="#resume-impact" id="resume-tab-impact" class="resume-spotlight-nav-link" data-resume-anchor data-resume-tab role="tab" aria-selected="false" aria-controls="resume-impact">Impact</a>
+                    <a href="#resume-experience" id="resume-tab-experience" class="resume-spotlight-nav-link" data-resume-anchor data-resume-tab role="tab" aria-selected="false" aria-controls="resume-experience">Experience</a>
+                </nav>
+
+                <div class="resume-spotlight-content">
+                    <section id="resume-summary" class="resume-spotlight-section is-active" role="tabpanel" aria-labelledby="resume-tab-summary">
+                        <div class="resume-spotlight-summary">
+                            {{ if gt (len $summaryParts) 1 }}
+                            <p class="resume-spotlight-lead">{{ index $summaryParts 0 }}end to end.</p>
+                            <p class="resume-spotlight-lead">{{ index $summaryParts 1 }}</p>
+                            {{ else }}
+                            <p class="resume-spotlight-lead">{{ $summary }}</p>
+                            {{ end }}
+                        </div>
+                        <div class="resume-spotlight-skills" aria-label="Core expertise">
+                            {{ range $resume.expertise }}
+                            {{ range first 2 .items }}
+                            <span class="tag-sharp">{{ . }}</span>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </section>
+
+                    <section id="resume-impact" class="resume-spotlight-section" role="tabpanel" aria-labelledby="resume-tab-impact" hidden>
+                        <div class="resume-spotlight-section-head">
+                            <div class="section-label">Selected Impact</div>
+                            <a href="{{ $aboutURL }}#highlights" class="resume-inline-link">
+                                All highlights
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                        <ul class="resume-spotlight-scan-list">
+                            {{ range $index, $item := first 3 $resume.highlights }}
+                            <li class="resume-spotlight-scan-item">
+                                <span class="resume-spotlight-scan-index font-mono">{{ printf "%02d" (add $index 1) }}</span>
+                                <div class="resume-spotlight-scan-copy">
+                                    <h5 class="resume-spotlight-scan-title">{{ $item.title }}</h5>
+                                    <p class="resume-spotlight-scan-text line-clamp-2">{{ $item.text }}</p>
+                                </div>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </section>
+
+                    <section id="resume-experience" class="resume-spotlight-section" role="tabpanel" aria-labelledby="resume-tab-experience" hidden>
+                        <div class="resume-spotlight-section-head">
+                            <div class="section-label">Recent Experience</div>
+                            <a href="{{ $aboutURL }}#experience" class="resume-inline-link">
+                                Full history
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                        <ul class="resume-spotlight-scan-list resume-spotlight-scan-list--roles">
+                            {{ range first 2 $resume.roles }}
+                            <li class="resume-spotlight-scan-item resume-spotlight-scan-item--role">
+                                <div class="resume-spotlight-scan-copy">
+                                    <div class="resume-spotlight-role-head">
+                                        <h5 class="resume-spotlight-role-title">{{ .title }}</h5>
+                                        <time class="resume-spotlight-role-dates font-mono">{{ .dates }}</time>
+                                    </div>
+                                    <p class="resume-spotlight-role-company">{{ .company }}</p>
+                                    <p class="resume-spotlight-role-summary line-clamp-2">{{ .summary }}</p>
+                                </div>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </section>
+
+                    <footer class="resume-spotlight-actions">
+                        <a href="{{ site.Params.linkedin }}" class="btn-outline sharp px-6 py-3 text-sm font-semibold inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin text-xs"></i>
+                            LinkedIn
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

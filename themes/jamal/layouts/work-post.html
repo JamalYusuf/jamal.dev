@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ partial "section-detail-open.html" . }}
+
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+            {{ with .Params.work_types }}
+            <span class="px-3 py-1 text-xs rounded-full font-medium" style="background-color: var(--secondary);">{{ index . 0 }}</span>
+            {{ end }}
+            {{ with .Date }}
+            <span class="text-xs text-gray-500 font-mono">{{ .Format "Jan 2006" | upper }}</span>
+            {{ end }}
+        </div>
+
+        <h1 class="font-display text-5xl md:text-6xl tracking-tighter">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="mt-4 text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>{{ end }}
+
+        {{ with .Params.technologies }}
+        <div class="mt-6 flex flex-wrap gap-2">
+            {{ range . }}
+            <span class="px-4 py-1 text-sm rounded-full" style="background-color: var(--secondary);">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="mt-12 blog-content text-gray-600 dark:text-gray-300 leading-relaxed">
+            {{ .Content }}
+        </div>
+
+        {{ with .Params.outcomes }}
+        <div class="mt-12">
+            <h3 id="outcomes" class="font-semibold text-xl mb-4">Outcomes</h3>
+            <ul class="space-y-4 text-sm">
+                {{ range $i, $item := . }}
+                <li class="flex gap-4">
+                    <span class="font-mono text-xs mt-1 w-5" style="color: var(--primary);">{{ printf "%02d" (add $i 1) }}</span>
+                    <span>{{ $item }}</span>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+
+{{ partial "section-detail-close.html" . }}
+{{ end }}

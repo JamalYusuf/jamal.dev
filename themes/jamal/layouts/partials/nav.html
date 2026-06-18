@@ -1,0 +1,52 @@
+<nav class="sticky top-0 z-50 border-b" style="background-color: var(--bg); border-color: var(--border);">
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="px-8 py-5 flex items-center justify-between">
+            <a href="{{ "/" | relURL }}" class="flex items-center gap-x-3">
+                {{ partial "logo.html" . }}
+                <div>
+                    <div class="font-display text-2xl font-semibold tracking-tighter">{{ .Site.Title }}</div>
+                    <div class="text-[10px] text-gray-500 -mt-1 tracking-[1.5px]">{{ .Site.Params.nav_tagline | default .Site.Params.tagline }}</div>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}" class="nav-link px-1 py-1{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} active{{ end }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }}</a>
+                {{ end }}
+            </div>
+
+            <div class="flex items-center gap-x-3">
+                {{- if site.Params.crosshair_cursor | default true -}}
+                <button type="button"
+                        id="crosshair-toggle"
+                        onclick="toggleCrosshair()"
+                        class="crosshair-toggle w-9 h-9 sharp flex items-center justify-center"
+                        aria-label="Enable precision cursor"
+                        aria-pressed="false"
+                        title="Precision cursor off">
+                    <i class="fa-solid fa-crosshairs text-base"></i>
+                </button>
+                {{- end -}}
+
+                <button onclick="toggleTheme()"
+                        class="theme-toggle w-9 h-9 sharp flex items-center justify-center hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+                        aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                </button>
+
+                <button onclick="toggleMobileMenu()"
+                        class="md:hidden w-9 h-9 flex items-center justify-center sharp hover:bg-gray-100 dark:hover:bg-zinc-800"
+                        aria-label="Open menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+
+                <a href="{{ .Site.Params.linkedin }}"
+                   class="hidden md:block px-5 py-2.5 text-sm font-semibold sharp btn-primary"
+                   target="_blank" rel="noopener noreferrer">
+                    Connect
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

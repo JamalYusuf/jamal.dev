@@ -1,0 +1,9 @@
+{{ $ctx := .ctx }}
+{{ $pages := .pages }}
+<ul class="section-sidebar-links">
+    {{ range $pages }}
+    <li>
+        <a href="{{ .RelPermalink }}" class="section-sidebar-link{{ if eq .RelPermalink $ctx.RelPermalink }} is-active{{ end }}"{{ if eq .RelPermalink $ctx.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>

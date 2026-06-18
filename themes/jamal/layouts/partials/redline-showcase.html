@@ -1,0 +1,691 @@
+<section class="redline-showcase" aria-label="REDLINE Design System visual reference">
+    <div class="max-w-screen-2xl mx-auto px-8">
+
+        {{/* ── Personality & Clarity ── */}}
+        <div id="personality" class="redline-showcase-section redline-showcase-section--lead">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">01</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Personality &amp; Clarity</h2>
+                    <p class="redline-showcase-lead">How REDLINE feels — and what it optimizes for when someone is scanning under pressure.</p>
+                </div>
+            </div>
+
+            <div class="redline-promise-grid">
+                <div class="redline-promise-card card sharp">
+                    <div class="section-label" style="color: var(--primary);">Promise 01</div>
+                    <h3 class="font-display text-2xl tracking-tight mt-2">Clarity</h3>
+                    <p class="text-sm text-muted mt-3 leading-relaxed">You always know what is content, what is action, and what is structure. Red means intent. Neutrals carry information.</p>
+                    <ul class="redline-promise-list">
+                        <li><span class="redline-promise-num font-mono">1</span> Hard boundaries between regions</li>
+                        <li><span class="redline-promise-num font-mono">2</span> Hierarchy you can learn from layout</li>
+                        <li><span class="redline-promise-num font-mono">3</span> Density without visual mush</li>
+                    </ul>
+                </div>
+                <div class="redline-promise-card card sharp">
+                    <div class="section-label" style="color: var(--primary);">Promise 02</div>
+                    <h3 class="font-display text-2xl tracking-tight mt-2">Personality</h3>
+                    <p class="text-sm text-muted mt-3 leading-relaxed">The UI has a point of view: precise, confident, technical. It respects the stakes of professional work.</p>
+                    <ul class="redline-promise-list">
+                        <li><span class="redline-promise-num font-mono">1</span> Decisions visible, not softened</li>
+                        <li><span class="redline-promise-num font-mono">2</span> One accent, used with discipline</li>
+                        <li><span class="redline-promise-num font-mono">3</span> Never cute by accident</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="redline-personality-grid">
+                <div class="redline-personality-col card sharp">
+                    <div class="section-label" style="color: var(--primary);">REDLINE feels</div>
+                    <ul class="redline-personality-list">
+                        <li><i class="fa-solid fa-check"></i> Precise</li>
+                        <li><i class="fa-solid fa-check"></i> Confident</li>
+                        <li><i class="fa-solid fa-check"></i> Technical</li>
+                        <li><i class="fa-solid fa-check"></i> Modern</li>
+                        <li><i class="fa-solid fa-check"></i> Intentional</li>
+                    </ul>
+                </div>
+                <div class="redline-personality-col card sharp redline-personality-col--avoid">
+                    <div class="section-label">Never feels</div>
+                    <ul class="redline-personality-list">
+                        <li><i class="fa-solid fa-xmark"></i> Playful</li>
+                        <li><i class="fa-solid fa-xmark"></i> Decorative</li>
+                        <li><i class="fa-solid fa-xmark"></i> Soft</li>
+                        <li><i class="fa-solid fa-xmark"></i> Trend-driven</li>
+                        <li><i class="fa-solid fa-xmark"></i> Visually noisy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Principles ── */}}
+        <div id="principles" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">02</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Design Principles</h2>
+                    <p class="redline-showcase-lead">Four rules encoded in every token and component below.</p>
+                </div>
+            </div>
+            <div class="redline-principles-grid">
+                <div class="redline-principle-card card sharp">
+                    <div class="redline-principle-icon"><i class="fa-solid fa-vector-square"></i></div>
+                    <h3>Sharp &amp; Decisive</h3>
+                    <p>Zero radius. Hard edges. Grid discipline.</p>
+                    <div class="redline-principle-demo">
+                        <div class="redline-edge-demo sharp" title="REDLINE — 0px"></div>
+                        <div class="redline-edge-demo redline-edge-demo--soft" title="Typical UI — 12px"></div>
+                    </div>
+                    <span class="redline-principle-caption font-mono">0px vs 12px</span>
+                </div>
+                <div class="redline-principle-card card sharp">
+                    <div class="redline-principle-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Confident Red</h3>
+                    <p>Action, focus, emphasis — never decoration.</p>
+                    <div class="redline-principle-demo redline-red-demo">
+                        <span class="redline-red-swatch" title="Primary accent"></span>
+                        <span class="redline-red-swatch redline-red-swatch--muted" title="Neutral surface"></span>
+                        <span class="redline-red-swatch redline-red-swatch--wrong" title="Avoid — gradient noise"></span>
+                    </div>
+                    <span class="redline-principle-caption font-mono">accent · neutral · avoid</span>
+                </div>
+                <div class="redline-principle-card card sharp">
+                    <div class="redline-principle-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Professional Minimalism</h3>
+                    <p>Hierarchy through spacing, not ornament.</p>
+                    <div class="redline-principle-demo redline-minimal-demo">
+                        <div class="redline-minimal-bar" style="width:100%"></div>
+                        <div class="redline-minimal-bar" style="width:72%"></div>
+                        <div class="redline-minimal-bar" style="width:48%"></div>
+                    </div>
+                </div>
+                <div class="redline-principle-card card sharp">
+                    <div class="redline-principle-icon"><i class="fa-solid fa-circle-half-stroke"></i></div>
+                    <h3>Dark Mode First</h3>
+                    <p>Both themes designed — not inverted.</p>
+                    <div class="redline-principle-demo redline-theme-split">
+                        <div class="redline-theme-split-pane redline-preview-light sharp">Aa</div>
+                        <div class="redline-theme-split-pane redline-preview-dark sharp">Aa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Sharp vs Soft ── */}}
+        <div id="compare" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">03</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Sharp vs. Soft</h2>
+                    <p class="redline-showcase-lead">Same data. Different geometry. Watch where your eye anchors first.</p>
+                </div>
+            </div>
+
+            <div class="redline-compare-controls">
+                <button type="button" class="redline-compare-toggle is-active" data-compare-view="both">Side by Side</button>
+                <button type="button" class="redline-compare-toggle" data-compare-view="sharp">REDLINE Only</button>
+                <button type="button" class="redline-compare-toggle" data-compare-view="soft">Typical UI Only</button>
+            </div>
+
+            <div class="redline-compare-grid" data-compare-panel="both">
+                <div class="redline-compare-panel sharp redline-compare-panel--soft" data-compare-side="soft">
+                    <div class="redline-compare-label">Typical UI</div>
+                    <div class="redline-compare-ui">
+                        <div class="redline-compare-nav">Dashboard</div>
+                        <div class="redline-compare-card">
+                            <div class="redline-compare-card-title">Active Users</div>
+                            <div class="redline-compare-card-value">2,847</div>
+                            <div class="redline-compare-btn">View Report</div>
+                        </div>
+                    </div>
+                    <div class="redline-scan-path redline-scan-path--soft" aria-hidden="true">
+                        <span class="redline-scan-dot" style="--x: 18%; --y: 22%;"></span>
+                        <span class="redline-scan-dot" style="--x: 42%; --y: 58%;"></span>
+                        <span class="redline-scan-dot" style="--x: 68%; --y: 74%;"></span>
+                    </div>
+                    <p class="redline-compare-note text-xs text-muted">Eye wanders — soft edges blur region boundaries</p>
+                </div>
+                <div class="redline-compare-panel sharp redline-compare-panel--sharp" data-compare-side="sharp">
+                    <div class="redline-compare-label" style="color: var(--primary);">REDLINE</div>
+                    <div class="redline-compare-ui">
+                        <div class="redline-compare-nav">Dashboard</div>
+                        <div class="redline-compare-card">
+                            <div class="redline-compare-card-title">Active Users</div>
+                            <div class="redline-compare-card-value">2,847</div>
+                            <div class="redline-compare-btn">View Report</div>
+                        </div>
+                    </div>
+                    <div class="redline-scan-path redline-scan-path--sharp" aria-hidden="true">
+                        <span class="redline-scan-dot" style="--x: 12%; --y: 14%;"></span>
+                        <span class="redline-scan-dot is-primary" style="--x: 12%; --y: 38%;"></span>
+                        <span class="redline-scan-dot is-primary" style="--x: 12%; --y: 62%;"></span>
+                    </div>
+                    <p class="redline-compare-note text-xs text-muted">Eye anchors on structure — then action in red</p>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Expert Vision / Eye-Tracking ── */}}
+        <div id="vision" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">04</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Why It Works — Eye-Tracking</h2>
+                    <p class="redline-showcase-lead">REDLINE is not taste alone. It is shaped by <a href="{{ "/research/eye-tracking-expert-perception/" | relURL }}" class="hover:underline" style="color: var(--primary);">Expert Vision</a> research — fixations, saccades, and what the eye does under real interface density.</p>
+                </div>
+            </div>
+
+            <div class="redline-vision-grid">
+                <div class="redline-vision-copy">
+                    <p class="text-sm leading-relaxed text-muted">We do not see screens the way cameras do. Vision is a rhythm of <strong>fixations</strong> — brief holds where the brain extracts detail — connected by <strong>saccades</strong> — fast jumps between those holds. Design either respects that rhythm or fights it.</p>
+
+                    <div class="redline-vision-insights">
+                        <article class="redline-vision-insight card sharp">
+                            <div class="redline-vision-insight-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                            <div>
+                                <h3>Red catches attention first</h3>
+                                <p>In visual search tasks, an isolated warm accent on a neutral field pops pre-attentively. Participants in my studies consistently land early fixations on REDLINE primary actions and structural markers — not because red is loud, but because it is <em>singular</em>.</p>
+                            </div>
+                        </article>
+                        <article class="redline-vision-insight card sharp">
+                            <div class="redline-vision-insight-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                            <div>
+                                <h3>Sharp corners are easier to see</h3>
+                                <p>Rounded geometry softens boundary cues. Zero-radius edges produce stronger spatial frequency at region borders — the eye detects compartments faster, which shortens the first saccade chain when orienting on a dense dashboard.</p>
+                            </div>
+                        </article>
+                        <article class="redline-vision-insight card sharp">
+                            <div class="redline-vision-insight-icon"><i class="fa-solid fa-eye"></i></div>
+                            <div>
+                                <h3>Warm red can be easier on the eyes</h3>
+                                <p>Not red everywhere — disciplined red. Against calm neutrals, a warm accent avoids the cool blue-white glow that many interfaces radiate across every surface. Participants often describe REDLINE screens as less visually "buzzy" than gradient-heavy, blue-chrome UIs.</p>
+                            </div>
+                        </article>
+                        <article class="redline-vision-insight card sharp">
+                            <div class="redline-vision-insight-icon"><i class="fa-solid fa-moon"></i></div>
+                            <div>
+                                <h3>Dark mode supports how we actually work</h3>
+                                <p>Blue-rich light keeps you alert — useful at 9 a.m., punishing at 11 p.m. Dark themes reduce that circadian tug for long evening sessions. REDLINE dark mode is designed, not inverted, so fixations still find structure without fighting a glowing sheet of white.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <p class="text-sm text-muted mt-4 leading-relaxed">This is research-informed design opinion — not a clinical claim. But the pattern repeats in lab sessions and production tools alike: <strong>predictable anchors, fewer wasted saccades, faster orientation.</strong></p>
+                </div>
+
+                <div class="redline-gaze-demo card sharp">
+                    <div class="section-label">Fixations &amp; Saccades</div>
+                    <p class="text-xs text-muted mt-2">Simulated gaze replay on a REDLINE panel — numbered fixations, dashed saccade paths.</p>
+                    <div class="redline-gaze-stage">
+                        <div class="redline-gaze-ui sharp">
+                            <div class="redline-gaze-ui-header">
+                                <span class="section-label">Claims Review</span>
+                                <button type="button" class="redline-gaze-ui-btn">Approve</button>
+                            </div>
+                            <div class="redline-gaze-ui-row"><span class="redline-gaze-ui-label">Member</span><span>ID · 88421</span></div>
+                            <div class="redline-gaze-ui-row"><span class="redline-gaze-ui-label">Status</span><span class="text-primary font-semibold">Pending</span></div>
+                            <div class="redline-gaze-ui-block"></div>
+                        </div>
+                        <svg class="redline-gaze-svg" viewBox="0 0 320 220" aria-hidden="true">
+                            <path class="redline-gaze-saccade" d="M 48 28 L 48 52 L 220 52 L 220 88 L 56 128 L 200 168" />
+                            <g class="redline-gaze-fixation" style="--fx: 48px; --fy: 28px;"><circle cx="48" cy="28" r="14"/><text x="48" y="32">1</text></g>
+                            <g class="redline-gaze-fixation" style="--fx: 48px; --fy: 52px;"><circle cx="48" cy="52" r="12"/><text x="48" y="56">2</text></g>
+                            <g class="redline-gaze-fixation is-primary" style="--fx: 220px; --fy: 52px;"><circle cx="220" cy="52" r="16"/><text x="220" y="56">3</text></g>
+                            <g class="redline-gaze-fixation" style="--fx: 220px; --fy: 88px;"><circle cx="220" cy="88" r="11"/><text x="220" y="92">4</text></g>
+                            <g class="redline-gaze-fixation" style="--fx: 56px; --fy: 128px;"><circle cx="56" cy="128" r="13"/><text x="56" y="132">5</text></g>
+                            <g class="redline-gaze-fixation is-primary" style="--fx: 200px; --fy: 168px;"><circle cx="200" cy="168" r="15"/><text x="200" y="172">6</text></g>
+                        </svg>
+                        <div class="redline-gaze-heatmap" aria-hidden="true"></div>
+                    </div>
+                    <ul class="redline-gaze-legend">
+                        <li><span class="redline-gaze-legend-dot"></span> Fixation hold</li>
+                        <li><span class="redline-gaze-legend-line"></span> Saccade jump</li>
+                        <li><span class="redline-gaze-legend-dot is-primary"></span> Red anchor point</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Color tokens ── */}}
+        <div id="tokens" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">05</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Color Tokens</h2>
+                    <p class="redline-showcase-lead">Live swatches from your active theme. Click a swatch to copy its token name. Toggle light/dark in the nav to compare palettes.</p>
+                </div>
+            </div>
+            <div class="redline-palette">
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--bg" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--bg); border: 1px solid var(--border);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--bg</span><span class="text-muted">Background</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--fg" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--fg);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--fg</span><span class="text-muted">Foreground</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--primary" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--primary);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--primary</span><span class="text-muted">Brand accent</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--secondary" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--secondary);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--secondary</span><span class="text-muted">Surfaces</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--card" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--card); border: 1px solid var(--border);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--card</span><span class="text-muted">Cards</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--muted-fg" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--muted-fg);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--muted-fg</span><span class="text-muted">Secondary text</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--border" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--border);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--border</span><span class="text-muted">Dividers</span></div>
+                </button>
+                <button type="button" class="redline-swatch card sharp" data-copy-token="--ring" title="Copy token name">
+                    <div class="redline-swatch-color" style="background: var(--ring);"></div>
+                    <div class="redline-swatch-meta"><span class="font-mono">--ring</span><span class="text-muted">Focus ring</span></div>
+                </button>
+            </div>
+            <p id="redline-copy-toast" class="redline-copy-toast" role="status" aria-live="polite" hidden>Copied</p>
+
+            <div class="redline-parity-grid">
+                <div class="redline-parity-panel redline-preview-light sharp">
+                    <div class="section-label">Light Theme</div>
+                    <div class="redline-parity-card sharp">
+                        <span class="tag-sharp">Engineering</span>
+                        <h3 class="font-display">Platform Status</h3>
+                        <p>All pipelines operational. Latency within SLO.</p>
+                        <button type="button" class="redline-parity-btn">View Metrics</button>
+                    </div>
+                </div>
+                <div class="redline-parity-panel redline-preview-dark sharp">
+                    <div class="section-label">Dark Theme</div>
+                    <div class="redline-parity-card sharp">
+                        <span class="tag-sharp">Engineering</span>
+                        <h3 class="font-display">Platform Status</h3>
+                        <p>All pipelines operational. Latency within SLO.</p>
+                        <button type="button" class="redline-parity-btn">View Metrics</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Typography & Spacing ── */}}
+        <div class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">06</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Typography &amp; Spacing</h2>
+                    <p class="redline-showcase-lead">Type scale and rhythm that stay legible in dense interfaces.</p>
+                </div>
+            </div>
+            <div class="redline-type-spacing-grid">
+                <div class="redline-type-specimen card sharp">
+                    <div class="redline-type-row">
+                        <span class="redline-type-label section-label">Display · Space Grotesk</span>
+                        <p class="redline-type-display font-display">Building systems that scale.</p>
+                    </div>
+                    <div class="redline-type-row">
+                        <span class="redline-type-label section-label">Body · Inter</span>
+                        <p class="redline-type-body">REDLINE prioritizes legibility — clear hierarchy, generous line height, restrained weight.</p>
+                    </div>
+                    <div class="redline-type-row">
+                        <span class="redline-type-label section-label">Mono · JetBrains Mono</span>
+                        <p class="redline-type-mono font-mono">const accent = getToken('--primary');</p>
+                    </div>
+                </div>
+                <div class="redline-spacing-specimen card sharp">
+                    <div class="redline-spacing-row"><span class="font-mono">XS · 4</span><div class="redline-spacing-bar" style="width: 4px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">SM · 8</span><div class="redline-spacing-bar" style="width: 8px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">MD · 16</span><div class="redline-spacing-bar" style="width: 16px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">LG · 24</span><div class="redline-spacing-bar" style="width: 24px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">XL · 32</span><div class="redline-spacing-bar" style="width: 32px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">2XL · 48</span><div class="redline-spacing-bar" style="width: 48px;"></div></div>
+                    <div class="redline-spacing-row"><span class="font-mono">3XL · 64</span><div class="redline-spacing-bar" style="width: 64px;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Components ── */}}
+        <div id="components" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">07</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Components</h2>
+                    <p class="redline-showcase-lead">Production patterns from Jamal.dev and REDLINE Notes — built for scan paths, not slide decks.</p>
+                </div>
+            </div>
+
+            <div class="redline-components-grid">
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Buttons</div>
+                    <div class="redline-component-demo redline-component-demo--row">
+                        <button type="button" class="px-5 py-2.5 text-sm font-semibold btn-primary sharp">Primary</button>
+                        <button type="button" class="px-5 py-2.5 text-sm font-semibold btn-outline sharp">Secondary</button>
+                        <button type="button" class="px-5 py-2.5 text-sm font-semibold btn-outline sharp" disabled>Disabled</button>
+                    </div>
+                </div>
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Inputs</div>
+                    <div class="redline-component-demo">
+                        <input type="text" class="redline-input sharp" placeholder="Search components…" aria-label="Demo search input">
+                        <input type="email" class="redline-input sharp" value="Contact@JamalYusuf.com" aria-label="Demo email input">
+                    </div>
+                </div>
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Tags &amp; Badges</div>
+                    <div class="redline-component-demo redline-component-demo--row">
+                        <span class="tag-sharp">Framework</span>
+                        <span class="tag-sharp">Active</span>
+                        <span class="badge-sharp"><span class="pulse-dot"></span> Live</span>
+                    </div>
+                </div>
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Cards</div>
+                    <div class="surface-card sharp redline-mini-card">
+                        <div class="section-label">Module</div>
+                        <h4 class="font-semibold">Claims Throughput</h4>
+                        <p class="text-sm text-muted mt-2">1.2M events / day · 99.9% availability</p>
+                    </div>
+                </div>
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Section Header</div>
+                    <div class="redline-section-header-demo">
+                        <div class="section-label">Research Program</div>
+                        <h3 class="font-display redline-section-title">Expert Vision</h3>
+                    </div>
+                </div>
+                <div class="redline-component-panel card sharp">
+                    <div class="section-label">Placeholder</div>
+                    <div class="placeholder-image sharp redline-placeholder-demo">
+                        <span>IMAGE PLACEHOLDER</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card sharp p-8 mt-4">
+                <div class="section-label">Timeline</div>
+                <div class="resume-timeline redline-timeline-demo mt-4">
+                    <div class="resume-timeline-item">
+                        <div class="resume-timeline-marker"></div>
+                        <div>
+                            <div class="resume-timeline-top">
+                                <span class="resume-role-title">Tokens defined</span>
+                                <span class="font-mono text-xs text-muted">01</span>
+                            </div>
+                            <p class="text-sm text-muted mt-1">CSS variables, dual themes, Tailwind mapping.</p>
+                        </div>
+                    </div>
+                    <div class="resume-timeline-item">
+                        <div class="resume-timeline-marker"></div>
+                        <div>
+                            <div class="resume-timeline-top">
+                                <span class="resume-role-title">Jamal.dev shipped</span>
+                                <span class="font-mono text-xs text-muted">02</span>
+                            </div>
+                            <p class="text-sm text-muted mt-1">Full reference implementation.</p>
+                        </div>
+                    </div>
+                    <div class="resume-timeline-item">
+                        <div class="resume-timeline-marker"></div>
+                        <div>
+                            <div class="resume-timeline-top">
+                                <span class="resume-role-title">REDLINE Notes</span>
+                                <span class="font-mono text-xs text-muted">03</span>
+                            </div>
+                            <p class="text-sm text-muted mt-1">Editor product on the same system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── AI interaction patterns ── */}}
+        <div id="ai" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">08</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">AI Interaction Patterns</h2>
+                    <p class="redline-showcase-lead">How REDLINE handles agents and copilots — structure before tokens, provenance before trust, human agency before automation.</p>
+                </div>
+            </div>
+
+            <div class="redline-ai-layout">
+                <div class="redline-ai-chat card sharp">
+                    <header class="redline-ai-chat-header">
+                        <div>
+                            <div class="section-label">Agent Copilot</div>
+                            <h3 class="font-display text-lg tracking-tight">Claims Assistant</h3>
+                        </div>
+                        <span class="badge-sharp"><span class="pulse-dot"></span> Traced</span>
+                    </header>
+                    <div class="redline-ai-chat-thread">
+                        <div class="redline-ai-msg redline-ai-msg--user sharp">
+                            <span class="redline-ai-msg-label font-mono">You</span>
+                            <p>Summarize denial risk for claim 88421 — show sources.</p>
+                        </div>
+                        <div class="redline-ai-msg redline-ai-msg--agent sharp">
+                            <span class="redline-ai-msg-label font-mono">Agent</span>
+                            <p><strong class="text-primary">Moderate risk.</strong> Missing prior authorization on file. Policy section 4.2 applies.</p>
+                            <div class="redline-ai-sources">
+                                <span class="tag-sharp">policy-manual.pdf §4.2</span>
+                                <span class="tag-sharp">auth-db · 12ms</span>
+                                <span class="tag-sharp">claim-events · kafka</span>
+                            </div>
+                        </div>
+                        <div class="redline-ai-msg redline-ai-msg--agent sharp is-streaming">
+                            <span class="redline-ai-msg-label font-mono">Agent</span>
+                            <p>Recommended next step: route to clinical review queue.<span class="redline-ai-cursor" aria-hidden="true"></span></p>
+                        </div>
+                    </div>
+                    <div class="redline-ai-tool-card sharp">
+                        <div class="redline-ai-tool-head">
+                            <i class="fa-solid fa-wrench"></i>
+                            <span class="font-mono text-xs">tool_call · update_claim_status</span>
+                        </div>
+                        <pre class="redline-ai-tool-body font-mono">{"claim_id": "88421", "queue": "clinical_review"}</pre>
+                    </div>
+                    <div class="redline-ai-approval sharp">
+                        <span class="text-sm font-medium">Approve side effect?</span>
+                        <div class="redline-ai-approval-actions">
+                            <button type="button" class="px-4 py-2 text-xs font-semibold btn-primary sharp">Approve</button>
+                            <button type="button" class="px-4 py-2 text-xs font-semibold btn-outline sharp">Edit</button>
+                            <button type="button" class="px-4 py-2 text-xs font-semibold btn-outline sharp">Reject</button>
+                        </div>
+                    </div>
+                    <footer class="redline-ai-composer sharp">
+                        <div class="redline-ai-suggestions">
+                            <button type="button" class="redline-ai-chip">Explain SLO impact</button>
+                            <button type="button" class="redline-ai-chip">Show retrieval trace</button>
+                            <button type="button" class="redline-ai-chip">Draft member notice</button>
+                        </div>
+                        <div class="redline-ai-input-row">
+                            <input type="text" class="redline-input sharp" placeholder="Ask the agent — governed, traced, attributable…" aria-label="AI prompt input">
+                            <button type="button" class="px-4 py-2.5 text-sm font-semibold btn-primary sharp">Send</button>
+                        </div>
+                        <p class="redline-ai-meta font-mono">claude-sonnet · 1.2k tokens · PII scrubbed · <span class="text-primary">human-in-the-loop</span></p>
+                    </footer>
+                </div>
+
+                <div class="redline-ai-side">
+                    <div class="redline-component-panel card sharp">
+                        <div class="section-label">Confidence &amp; Provenance</div>
+                        <div class="redline-ai-confidence mt-4">
+                            <div class="redline-ai-confidence-row">
+                                <span class="text-sm">Retrieval match</span>
+                                <span class="font-mono text-sm text-primary">0.94</span>
+                            </div>
+                            <div class="redline-ai-confidence-bar"><span style="width: 94%"></span></div>
+                            <div class="redline-ai-confidence-row mt-3">
+                                <span class="text-sm">Policy grounding</span>
+                                <span class="tag-sharp redline-tag-healthy">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="redline-component-panel card sharp">
+                        <div class="section-label">Agent Status</div>
+                        <ul class="redline-ai-status-list">
+                            <li><span class="redline-ai-status-dot is-active"></span> Orchestrator · idle</li>
+                            <li><span class="redline-ai-status-dot is-active"></span> Retrieval · 142ms</li>
+                            <li><span class="redline-ai-status-dot is-warn"></span> Validator · reviewing</li>
+                        </ul>
+                    </div>
+                    <div class="redline-component-panel card sharp">
+                        <div class="section-label">Design rules for AI UI</div>
+                        <ul class="redline-promise-list">
+                            <li><span class="redline-promise-num font-mono">1</span> Hierarchy before generated text</li>
+                            <li><span class="redline-promise-num font-mono">2</span> Sources visible in scan order</li>
+                            <li><span class="redline-promise-num font-mono">3</span> Side effects require explicit approval</li>
+                            <li><span class="redline-promise-num font-mono">4</span> Streaming does not erase structure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Interaction states ── */}}
+        <div id="states" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">09</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">Interaction States</h2>
+                    <p class="redline-showcase-lead">Hover, focus, and active — restrained motion with accessible focus rings.</p>
+                </div>
+            </div>
+            <div class="redline-states-grid">
+                <div class="redline-state-card card sharp">
+                    <span class="section-label">Default</span>
+                    <button type="button" class="redline-state-btn btn-outline sharp mt-4">Outline Button</button>
+                </div>
+                <div class="redline-state-card card sharp">
+                    <span class="section-label">Hover</span>
+                    <button type="button" class="redline-state-btn btn-outline sharp mt-4 is-hover-demo">Outline Button</button>
+                </div>
+                <div class="redline-state-card card sharp">
+                    <span class="section-label">Focus</span>
+                    <button type="button" class="redline-state-btn btn-primary sharp mt-4 is-focus-demo">Primary Button</button>
+                </div>
+                <div class="redline-state-card card sharp">
+                    <span class="section-label">Card lift</span>
+                    <div class="redline-state-card-demo surface-card sharp is-lift-demo">
+                        <span class="text-sm font-semibold">Hover specimen</span>
+                        <span class="text-xs text-muted">translateY(-2px)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── Dashboard ── */}}
+        <div id="dashboard" class="redline-showcase-section">
+            <div class="redline-section-head">
+                <span class="redline-section-index font-mono">10</span>
+                <div>
+                    <h2 class="redline-showcase-heading font-display">In Context</h2>
+                    <p class="redline-showcase-lead">A miniature console — how tokens, type, and components compose under real density.</p>
+                </div>
+            </div>
+            <div class="redline-dashboard sharp" id="redline-dashboard-demo">
+                <header class="redline-dashboard-header">
+                    <div class="redline-dashboard-brand font-display">RED<span class="text-primary">LINE</span> <span class="redline-dashboard-sub">Console</span></div>
+                    <div class="redline-dashboard-header-actions">
+                        <span class="badge-sharp"><span class="pulse-dot"></span> Operational</span>
+                    </div>
+                </header>
+                <div class="redline-dashboard-body">
+                    <nav class="redline-dashboard-nav sharp" aria-label="Demo navigation">
+                        <button type="button" class="redline-dashboard-nav-item is-active" data-dashboard-tab="overview">Overview</button>
+                        <button type="button" class="redline-dashboard-nav-item" data-dashboard-tab="agents">Agents</button>
+                        <button type="button" class="redline-dashboard-nav-item" data-dashboard-tab="pipelines">Pipelines</button>
+                        <button type="button" class="redline-dashboard-nav-item" data-dashboard-tab="governance">Governance</button>
+                    </nav>
+                    <main class="redline-dashboard-main">
+                        <div class="redline-dashboard-panels">
+                            <div class="redline-dashboard-panel is-active" data-dashboard-panel="overview">
+                                <div class="section-label">Platform Metrics</div>
+                                <h3 class="font-display text-2xl tracking-tight">Tuesday · Production</h3>
+                                <div class="redline-dashboard-stats">
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">LATENCY P99</span>
+                                        <span class="redline-dashboard-stat-value font-display">142<span class="text-primary">ms</span></span>
+                                    </div>
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">INVOCATIONS</span>
+                                        <span class="redline-dashboard-stat-value font-display">48.2<span class="text-primary">k</span></span>
+                                    </div>
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">ERROR BUDGET</span>
+                                        <span class="redline-dashboard-stat-value font-display">94<span class="text-primary">%</span></span>
+                                    </div>
+                                </div>
+                                <div class="redline-dashboard-table card sharp">
+                                    <div class="redline-dashboard-table-head">
+                                        <span>Service</span><span>Status</span><span>SLO</span>
+                                    </div>
+                                    <div class="redline-dashboard-table-row">
+                                        <span class="font-mono text-sm">claims-orchestrator</span>
+                                        <span class="tag-sharp redline-tag-healthy">Healthy</span>
+                                        <span class="font-mono text-sm text-muted">99.9%</span>
+                                    </div>
+                                    <div class="redline-dashboard-table-row">
+                                        <span class="font-mono text-sm">rag-ingestion</span>
+                                        <span class="tag-sharp redline-tag-healthy">Healthy</span>
+                                        <span class="font-mono text-sm text-muted">99.5%</span>
+                                    </div>
+                                    <div class="redline-dashboard-table-row">
+                                        <span class="font-mono text-sm">llm-gateway</span>
+                                        <span class="tag-sharp">Degraded</span>
+                                        <span class="font-mono text-sm text-muted">98.1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="redline-dashboard-panel" data-dashboard-panel="agents" hidden>
+                                <div class="section-label">Agent Fleet</div>
+                                <h3 class="font-display text-2xl tracking-tight">6 agents · 3 tiers</h3>
+                                <p class="text-sm text-muted mt-2">Orchestration in Go. Traced invocations. Governed retrieval.</p>
+                                <div class="redline-dashboard-stats mt-4">
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">TIER 1</span>
+                                        <span class="redline-dashboard-stat-value font-display">2</span>
+                                    </div>
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">TIER 2</span>
+                                        <span class="redline-dashboard-stat-value font-display">3</span>
+                                    </div>
+                                    <div class="redline-dashboard-stat card sharp">
+                                        <span class="text-xs text-muted font-mono">TIER 3</span>
+                                        <span class="redline-dashboard-stat-value font-display">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="redline-dashboard-panel" data-dashboard-panel="pipelines" hidden>
+                                <div class="section-label">Event Backbone</div>
+                                <h3 class="font-display text-2xl tracking-tight">Kafka · 1.2M / day</h3>
+                                <p class="text-sm text-muted mt-2">Sub-second latency. Idempotent consumers. Schema governed.</p>
+                            </div>
+                            <div class="redline-dashboard-panel" data-dashboard-panel="governance" hidden>
+                                <div class="section-label">Governance</div>
+                                <h3 class="font-display text-2xl tracking-tight">Tiered review</h3>
+                                <p class="text-sm text-muted mt-2">Lightweight experiments. Rigorous member-facing paths. Instrumented controls.</p>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        {{/* ── CTA ── */}}
+        <div class="redline-showcase-cta card sharp">
+            <h3 class="font-display text-2xl tracking-tight">See it in production</h3>
+            <p class="text-muted mt-2 text-sm">Jamal.dev is the live reference. REDLINE Notes is the product built on the same tokens.</p>
+            <div class="redline-showcase-cta-links">
+                <a href="{{ "/" | relURL }}" class="px-6 py-3 text-sm font-semibold btn-primary sharp inline-flex items-center gap-2">Jamal.dev <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                <a href="https://github.com/JamalYusuf/REDLINE-Notes" class="px-6 py-3 text-sm font-semibold btn-outline sharp inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> REDLINE Notes</a>
+                <a href="{{ "/writing/sharp-design-systems/" | relURL }}" class="px-6 py-3 text-sm font-semibold btn-outline sharp inline-flex items-center gap-2">Read the essay <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>

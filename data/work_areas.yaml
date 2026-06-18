@@ -1,0 +1,28 @@
+- number: "01"
+  title: Architecture & Engineering
+  description: Enterprise platforms, distributed systems, AI infrastructure, and technical leadership at scale.
+  url: /work/architecture/
+- number: "02"
+  title: AI Systems & Agents
+  description: Production LLM orchestration, multi-agent workflows, and enterprise AI platform design.
+  url: /work/ai-systems/
+- number: "03"
+  title: Platforms & Infrastructure
+  description: Event-driven pipelines, lakehouse platforms, and the backbone systems that AI workloads depend on.
+  url: /work/platforms/
+- number: "04"
+  title: Engineering Leadership
+  description: Team transformation, governance frameworks, and scaling responsible technology adoption.
+  url: /work/leadership/
+- number: "05"
+  title: Research
+  description: Expert Vision framework, eye-tracking studies, decision-making research, and human performance modeling.
+  url: /research/
+- number: "06"
+  title: Open Source & Experiments
+  description: Tools, prototypes, and technical explorations that turn ideas into practical systems.
+  url: /work/open-source/
+- number: "07"
+  title: Case Studies
+  description: Selected engagements demonstrating architecture decisions, impact, and lessons learned.
+  url: /work/case-studies/

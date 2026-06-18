@@ -1,0 +1,252 @@
+<section class="ev-diagrams" aria-label="Eye-tracking visual explanations">
+        <div class="ev-diagrams-intro">
+            <div class="section-label">Visual Reference</div>
+            <h2 id="how-eye-tracking-works" class="font-display text-3xl tracking-tighter mt-2">How Eye-Tracking Works</h2>
+            <p class="text-muted text-sm md:text-base mt-3 max-w-2xl leading-relaxed">Expert Vision depends on measurable perception. These diagrams explain the optics and signal path — from pupil and corneal reflection to gaze coordinates on screen.</p>
+        </div>
+
+        {{/* ── Setup: camera, IR, screen ── */}}
+        <div class="ev-diagram-card card sharp">
+            <div class="ev-diagram-head">
+                <span class="ev-diagram-num font-mono">01</span>
+                <div>
+                    <h3 class="font-display text-xl tracking-tight">Remote Eye-Tracking Setup</h3>
+                    <p class="text-sm text-muted mt-1">An infrared camera below the screen illuminates the eye and records pupil position relative to the display.</p>
+                </div>
+            </div>
+            <div class="ev-setup-diagram">
+                <svg class="ev-setup-svg" viewBox="0 0 300 360" preserveAspectRatio="none" aria-hidden="true">
+                    <line class="ev-setup-line ev-setup-line--gaze" x1="116" y1="74" x2="150" y2="290" />
+                    <circle class="ev-setup-cap ev-setup-cap--gaze" cx="116" cy="74" r="5" />
+                    <circle class="ev-setup-cap ev-setup-cap--eye" cx="150" cy="290" r="6" />
+                    <line class="ev-setup-line ev-setup-line--ir" x1="130" y1="112" x2="144" y2="290" />
+                    <line class="ev-setup-line ev-setup-line--ir" x1="170" y1="112" x2="156" y2="290" />
+                    <line class="ev-setup-line ev-setup-line--capture" x1="150" y1="114" x2="150" y2="290" />
+                </svg>
+                <div class="ev-setup-column">
+                    <div class="ev-setup-screen sharp">
+                        <span class="section-label">Stimulus display</span>
+                        <div class="ev-setup-screen-content">
+                            <span class="ev-setup-target is-active"></span>
+                            <span class="ev-setup-target"></span>
+                            <span class="ev-setup-target"></span>
+                        </div>
+                    </div>
+                    <div class="ev-setup-camera-mount sharp">
+                        <div class="ev-setup-camera-leds" aria-hidden="true">
+                            <span></span><span></span>
+                        </div>
+                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                        <span class="font-mono text-xs">IR camera</span>
+                        <span class="ev-setup-led font-mono">Mounted below display</span>
+                    </div>
+                    <div class="ev-setup-distance">
+                        <span class="ev-setup-distance-label font-mono">Viewing distance</span>
+                    </div>
+                    <div class="ev-setup-eye-block">
+                        <div class="ev-setup-eye sharp" aria-hidden="true">
+                            <div class="ev-setup-sclera"></div>
+                            <div class="ev-setup-pupil"></div>
+                            <div class="ev-setup-glint"></div>
+                        </div>
+                        <span class="ev-setup-label font-mono">Eye</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="ev-diagram-legend">
+                <li><span class="ev-legend-swatch ev-legend-swatch--gaze"></span> Gaze vector (screen → eye)</li>
+                <li><span class="ev-legend-swatch ev-legend-swatch--ir"></span> Infrared illumination (camera → eye)</li>
+                <li><span class="ev-legend-swatch ev-legend-swatch--cam"></span> Pupil &amp; glint capture</li>
+            </ul>
+        </div>
+
+        {{/* ── PCCR close-up ── */}}
+        <div class="ev-diagram-grid">
+            <div class="ev-diagram-card card sharp">
+                <div class="ev-diagram-head">
+                    <span class="ev-diagram-num font-mono">02</span>
+                    <div>
+                        <h3 class="font-display text-xl tracking-tight">Pupil Center &amp; Corneal Reflection</h3>
+                        <p class="text-sm text-muted mt-1">PCCR — the bright glint on the cornea and the dark pupil center define the optical vector used to estimate gaze angle.</p>
+                    </div>
+                </div>
+                <div class="ev-pccr-stage">
+                    <div class="ev-pccr-eye sharp" aria-hidden="true">
+                        <div class="ev-pccr-iris"></div>
+                        <div class="ev-pccr-pupil">
+                            <span class="ev-pccr-crosshair"></span>
+                            <span class="ev-pccr-crosshair ev-pccr-crosshair--v"></span>
+                        </div>
+                        <div class="ev-pccr-glint" title="Corneal reflection"></div>
+                        <div class="ev-pccr-vector"></div>
+                    </div>
+                    <dl class="ev-pccr-callouts">
+                        <div class="ev-pccr-callout sharp">
+                            <dt class="font-mono text-xs text-primary">Pupil center</dt>
+                            <dd class="text-xs text-muted">Dark region enlarged under IR — algorithm finds geometric center.</dd>
+                        </div>
+                        <div class="ev-pccr-callout sharp">
+                            <dt class="font-mono text-xs text-primary">Corneal reflection</dt>
+                            <dd class="text-xs text-muted">Small bright glint from IR LEDs reflecting off the cornea.</dd>
+                        </div>
+                        <div class="ev-pccr-callout sharp">
+                            <dt class="font-mono text-xs text-primary">PCCR vector</dt>
+                            <dd class="text-xs text-muted">Offset between glint and pupil center maps to gaze direction.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="ev-diagram-card card sharp">
+                <div class="ev-diagram-head">
+                    <span class="ev-diagram-num font-mono">03</span>
+                    <div>
+                        <h3 class="font-display text-xl tracking-tight">From Eye to Screen Coordinates</h3>
+                        <p class="text-sm text-muted mt-1">Calibration translates the optical vector into X/Y gaze coordinates on the stimulus.</p>
+                    </div>
+                </div>
+                <div class="ev-map-flow">
+                    <div class="ev-map-step sharp">
+                        <span class="font-mono text-xs">eye space</span>
+                        <div class="ev-map-eye-mini" aria-hidden="true">
+                            <div class="ev-map-pupil"></div>
+                            <div class="ev-map-glint"></div>
+                        </div>
+                    </div>
+                    <div class="ev-map-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="ev-map-step sharp">
+                        <span class="font-mono text-xs">gaze vector</span>
+                        <code class="ev-map-code font-mono">Δx, Δy</code>
+                    </div>
+                    <div class="ev-map-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="ev-map-step sharp">
+                        <span class="font-mono text-xs">screen space</span>
+                        <div class="ev-map-screen">
+                            <span class="ev-map-dot"></span>
+                        </div>
+                        <code class="ev-map-code font-mono">(1240, 680)</code>
+                    </div>
+                </div>
+                <p class="text-xs text-muted mt-4 leading-relaxed">Systems like <a href="https://www.eyegaze.com/" class="hover:underline" style="color: var(--primary);">Eyegaze</a> and <a href="https://www.interactive-minds.com/" class="hover:underline" style="color: var(--primary);">Interactive Minds</a> run this pipeline at study scale — calibration, recording, analysis.</p>
+            </div>
+        </div>
+
+        {{/* ── Fixations & Saccades ── */}}
+        <div class="ev-diagram-card card sharp">
+            <div class="ev-diagram-head">
+                <span class="ev-diagram-num font-mono">04</span>
+                <div>
+                    <h3 class="font-display text-xl tracking-tight">Fixations &amp; Saccades</h3>
+                    <p class="text-sm text-muted mt-1">Vision is not continuous motion — it is holds and jumps. Expert Vision models both.</p>
+                </div>
+            </div>
+            <div class="ev-fixation-timeline">
+                <div class="ev-fixation-track">
+                    <div class="ev-fixation-segment is-hold" style="--w: 22%;"><span>Fixation</span><em>180ms</em></div>
+                    <div class="ev-fixation-segment is-jump" style="--w: 8%;"><span>Saccade</span><em>24ms</em></div>
+                    <div class="ev-fixation-segment is-hold" style="--w: 18%;"><span>Fixation</span><em>140ms</em></div>
+                    <div class="ev-fixation-segment is-jump" style="--w: 6%;"><span>Saccade</span><em>18ms</em></div>
+                    <div class="ev-fixation-segment is-hold is-primary" style="--w: 28%;"><span>Fixation</span><em>320ms</em></div>
+                    <div class="ev-fixation-segment is-jump" style="--w: 5%;"><span>Saccade</span><em>20ms</em></div>
+                    <div class="ev-fixation-segment is-hold" style="--w: 13%;"><span>Fixation</span><em>95ms</em></div>
+                </div>
+                <p class="text-xs text-muted mt-3">Longer fixations on structural anchors (nav, headers, red accents) — rapid saccades between them. That pattern is what Expert Vision extracts and teaches.</p>
+            </div>
+            <div class="ev-scanpath-demo sharp">
+                <div class="ev-scanpath-ui">
+                    <div class="ev-scanpath-header section-label">Dashboard</div>
+                    <div class="ev-scanpath-row"></div>
+                    <div class="ev-scanpath-row ev-scanpath-row--short"></div>
+                    <div class="ev-scanpath-btn"></div>
+                </div>
+                <svg class="ev-scanpath-svg" viewBox="0 0 400 160" aria-hidden="true">
+                    <path class="ev-scanpath-line" d="M 32 24 L 32 48 L 180 48 L 320 72 L 80 112 L 300 132" />
+                    <g class="ev-scanpath-fix">
+                        <circle cx="32" cy="24" r="10" />
+                        <text class="ev-scanpath-label" x="48" y="24">1</text>
+                    </g>
+                    <g class="ev-scanpath-fix">
+                        <circle cx="32" cy="48" r="8" />
+                        <text class="ev-scanpath-label" x="46" y="48">2</text>
+                    </g>
+                    <g class="ev-scanpath-fix is-primary">
+                        <circle cx="180" cy="48" r="11" />
+                        <text class="ev-scanpath-label" x="197" y="48">3</text>
+                    </g>
+                    <g class="ev-scanpath-fix">
+                        <circle cx="320" cy="72" r="8" />
+                        <text class="ev-scanpath-label ev-scanpath-label--left" x="306" y="72">4</text>
+                    </g>
+                    <g class="ev-scanpath-fix is-primary">
+                        <circle cx="300" cy="132" r="12" />
+                        <text class="ev-scanpath-label ev-scanpath-label--left" x="282" y="132">5</text>
+                    </g>
+                </svg>
+            </div>
+            <div class="ev-heatmap-row">
+                <div class="ev-heatmap-panel sharp">
+                    <span class="section-label">Aggregate heatmap</span>
+                    <div class="ev-heatmap-stage">
+                        <div class="ev-heatmap-ui">
+                            <div class="ev-heatmap-nav"></div>
+                            <div class="ev-heatmap-title"></div>
+                            <div class="ev-heatmap-grid">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="ev-heatmap-overlay" aria-hidden="true"></div>
+                    </div>
+                    <p class="text-xs text-muted mt-3">Dwell time accumulates into heat — sharp red accents and structural regions glow first in expert scan data.</p>
+                </div>
+                <ul class="ev-heatmap-legend">
+                    <li><span class="ev-heatmap-legend-swatch is-low"></span> Low dwell</li>
+                    <li><span class="ev-heatmap-legend-swatch is-mid"></span> Medium</li>
+                    <li><span class="ev-heatmap-legend-swatch is-high"></span> High dwell</li>
+                </ul>
+            </div>
+        </div>
+
+        {{/* ── Signal pipeline ── */}}
+        <div class="ev-diagram-card card sharp">
+            <div class="ev-diagram-head">
+                <span class="ev-diagram-num font-mono">05</span>
+                <div>
+                    <h3 class="font-display text-xl tracking-tight">Expert Vision Signal Pipeline</h3>
+                    <p class="text-sm text-muted mt-1">How gaze data joins behavioral and performance signals in the framework.</p>
+                </div>
+            </div>
+            <div class="ev-pipeline">
+                <div class="ev-pipeline-step sharp">
+                    <i class="fa-solid fa-eye"></i>
+                    <span class="font-semibold text-sm">Capture</span>
+                    <span class="text-xs text-muted">PCCR · 60–120 Hz</span>
+                </div>
+                <div class="ev-pipeline-connector"></div>
+                <div class="ev-pipeline-step sharp">
+                    <i class="fa-solid fa-map"></i>
+                    <span class="font-semibold text-sm">Map</span>
+                    <span class="text-xs text-muted">Gaze X/Y · AOI</span>
+                </div>
+                <div class="ev-pipeline-connector"></div>
+                <div class="ev-pipeline-step sharp">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="font-semibold text-sm">Analyze</span>
+                    <span class="text-xs text-muted">Heatmaps · paths</span>
+                </div>
+                <div class="ev-pipeline-connector"></div>
+                <div class="ev-pipeline-step sharp">
+                    <i class="fa-solid fa-brain"></i>
+                    <span class="font-semibold text-sm">Model</span>
+                    <span class="text-xs text-muted">Expert vs novice</span>
+                </div>
+                <div class="ev-pipeline-connector"></div>
+                <div class="ev-pipeline-step sharp is-accent">
+                    <i class="fa-solid fa-code"></i>
+                    <span class="font-semibold text-sm">Apply</span>
+                    <span class="text-xs text-muted">UI · agents · training</span>
+                </div>
+            </div>
+            <p class="text-sm text-muted mt-4">Related: <a href="{{ "/research/eye-tracking-expert-perception/" | relURL }}" class="hover:underline" style="color: var(--primary);">Eye-Tracking &amp; Expert Perception</a> · <a href="{{ "/research/redline-design-system/" | relURL }}" class="hover:underline" style="color: var(--primary);">REDLINE Design System</a></p>
+        </div>
+</section>

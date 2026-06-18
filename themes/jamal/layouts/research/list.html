@@ -1,0 +1,84 @@
+{{ define "main" }}
+
+<section class="hero-split hero-split--page">
+    <div class="hero-split-grid max-w-screen-2xl mx-auto">
+        <div class="hero-split-copy hero-split-copy--wide">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mb-4">
+                <h1 class="font-display text-5xl md:text-6xl tracking-tighter">Research</h1>
+                <div class="px-4 py-1 text-xs font-medium tracking-widest sharp" style="background-color: var(--primary); color: white;">EXPERT VISION</div>
+            </div>
+
+            <p class="text-lg md:text-xl max-w-2xl text-muted">{{ .Params.summary }}</p>
+        </div>
+
+        <div class="hero-split-visual hero-split-visual--landscape">
+            <div class="hero-split-visual-inner">
+                {{ partial "hero-split-media.html" (dict
+                    "src" site.Params.headshot_research
+                    "resize" "1200x"
+                    "alt" "Jamal Yusuf — Research"
+                ) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="research-index-body max-w-screen-2xl mx-auto px-8 pb-16">
+    <a href="{{ "/research/expert-vision-framework/" | relURL }}" class="research-index-featured card sharp group">
+        <div class="research-index-featured-copy">
+            <span class="section-label">Proprietary framework</span>
+            <span class="font-display text-lg tracking-tight group-hover:underline">Expert Vision</span>
+            <span class="text-sm text-muted research-index-featured-desc">{{ .Params.framework }}</span>
+        </div>
+        <span class="research-index-featured-action" style="color: var(--primary);">
+            Explore <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+        </span>
+    </a>
+
+    <div class="research-index-tabs" data-research-tabs>
+        <div class="research-index-tablist" role="tablist" aria-label="Research sections">
+            <button type="button" class="research-index-tab is-active" role="tab" id="research-tab-overview" aria-selected="true" aria-controls="research-panel-overview" data-research-tab="overview">Overview</button>
+            <button type="button" class="research-index-tab" role="tab" id="research-tab-programs" aria-selected="false" aria-controls="research-panel-programs" data-research-tab="programs">Programs</button>
+            <button type="button" class="research-index-tab" role="tab" id="research-tab-themes" aria-selected="false" aria-controls="research-panel-themes" data-research-tab="themes">Themes</button>
+        </div>
+
+        <div class="research-index-panel is-active" role="tabpanel" id="research-panel-overview" aria-labelledby="research-tab-overview" data-research-panel="overview">
+            {{ if .Content }}
+            <div class="blog-content research-index-prose text-gray-600 dark:text-gray-300 leading-relaxed">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </div>
+
+        <div class="research-index-panel" role="tabpanel" id="research-panel-programs" aria-labelledby="research-tab-programs" data-research-panel="programs" hidden>
+            <div class="research-programs-grid">
+                {{ range .Pages.ByTitle }}
+                <a href="{{ .RelPermalink }}" class="research-program-card card sharp group">
+                    <div class="research-program-card-top">
+                        {{ with .Params.research_types }}
+                        <span class="research-program-type font-mono">{{ index . 0 | upper }}</span>
+                        {{ end }}
+                        {{ with .Params.status }}
+                        <span class="research-program-status">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    <h2 class="research-program-title group-hover:underline">{{ .Title }}</h2>
+                    <p class="research-program-summary text-muted">{{ .Params.summary }}</p>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+
+        <div class="research-index-panel" role="tabpanel" id="research-panel-themes" aria-labelledby="research-tab-themes" data-research-panel="themes" hidden>
+            <div class="research-themes-grid">
+                {{ range site.Data.research_themes.core_themes }}
+                <div class="research-theme-card card sharp">
+                    <h3 class="research-theme-title">{{ .title }}</h3>
+                    <p class="text-sm text-muted">{{ .description }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

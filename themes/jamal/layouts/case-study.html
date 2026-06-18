@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ partial "section-detail-open.html" . }}
+
+        {{ with .Params.category }}
+        <div class="uppercase text-xs tracking-[1.5px] font-medium mb-2" style="color: var(--primary);">{{ . }}</div>
+        {{ end }}
+
+        <h1 class="font-display text-5xl md:text-6xl tracking-tighter">{{ .Title }}</h1>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-x-8 text-sm">
+            {{ with .Params.challenge }}
+            <div>
+                <div class="font-medium text-gray-500">Challenge</div>
+                <p class="mt-1 text-gray-600 dark:text-gray-300">{{ . }}</p>
+            </div>
+            {{ end }}
+            {{ with .Params.approach }}
+            <div>
+                <div class="font-medium text-gray-500">Approach</div>
+                <p class="mt-1 text-gray-600 dark:text-gray-300">{{ . }}</p>
+            </div>
+            {{ end }}
+            {{ with .Params.impact }}
+            <div>
+                <div class="font-medium text-gray-500">Impact</div>
+                <p class="mt-1 text-gray-600 dark:text-gray-300">{{ . }}</p>
+            </div>
+            {{ end }}
+        </div>
+
+        {{ if .Content }}
+        <div class="mt-12 blog-content text-gray-600 dark:text-gray-300 leading-relaxed">{{ .Content }}</div>
+        {{ end }}
+
+{{ partial "section-detail-close.html" . }}
+{{ end }}

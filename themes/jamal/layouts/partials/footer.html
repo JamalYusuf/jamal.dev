@@ -1,0 +1,59 @@
+<footer class="site-footer">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="site-footer-main">
+            <div class="site-footer-brand">
+                <div class="site-footer-identity">
+                    {{ partial "logo.html" . }}
+                    <div class="site-footer-brand-copy">
+                        <span class="site-footer-name font-display">{{ .Site.Params.author }}</span>
+                        <span class="site-footer-tagline">{{ .Site.Params.nav_tagline }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="site-footer-nav" aria-label="Footer">
+                <div class="site-footer-column">
+                    <h2 class="site-footer-heading section-label">Explore</h2>
+                    <ul class="site-footer-links">
+                        {{ range .Site.Menus.main }}
+                        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+
+                <div class="site-footer-column">
+                    <h2 class="site-footer-heading section-label">Connect</h2>
+                    <ul class="site-footer-links">
+                        <li><a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="mailto:{{ .Site.Params.contact_email }}">Email</a></li>
+                        {{ with .Site.GetPage "/writing" }}
+                        {{ with .OutputFormats.Get "rss" }}
+                        <li><a href="{{ .Permalink }}">RSS</a></li>
+                        {{ end }}
+                        {{ end }}
+                        {{ with .Site.Params.site_repo }}
+                        <li><a href="{{ . }}/fork" target="_blank" rel="noopener noreferrer">Fork on GitHub</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="site-footer-bottom">
+            <p class="site-footer-meta">
+                <span>© {{ now.Year }} {{ .Site.Params.author }}</span>
+                <span class="site-footer-meta-sep" aria-hidden="true">·</span>
+                <span>Interface: <a href="{{ "/research/redline-design-system/" | relURL }}">REDLINE</a></span>
+                <span class="site-footer-meta-sep" aria-hidden="true">·</span>
+                <span>United States</span>
+            </p>
+            <ul class="site-footer-legal">
+                <li><a href="{{ "/legal/privacy-policy/" | relURL }}">Privacy</a></li>
+                <li><a href="{{ "/legal/terms-of-use/" | relURL }}">Terms</a></li>
+                <li><a href="{{ "/legal/disclaimer/" | relURL }}">Disclaimer</a></li>
+                <li><a href="{{ "/legal/accessibility/" | relURL }}">Accessibility</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,155 @@
+{{ define "main" }}
+
+<section class="hero-home" id="hero-home">
+    <div class="hero-home-stage">
+        <figure class="hero-home-figure">
+            {{ partial "hero-home-media.html" . }}
+        </figure>
+        <div class="hero-home-scrim" aria-hidden="true"></div>
+        <div class="hero-home-content">
+            <div class="hero-home-inner">
+                <div class="hero-home-copy">
+                    <div class="hero-home-meta">
+                        <div class="badge-sharp">
+                            <span class="pulse-dot"></span>
+                            {{ .Site.Params.hero_badge }}
+                        </div>
+                        <span class="hero-home-role">{{ .Site.Params.hero_role | default .Site.Params.tagline }}</span>
+                    </div>
+
+                    <h1 class="hero-home-title font-display tracking-tighter font-semibold">
+                        {{ .Site.Params.hero_title }}
+                        {{- with .Site.Params.hero_title_accent -}}
+                        <span class="text-primary">{{ . }}</span>
+                        {{- end -}}
+                    </h1>
+
+                    <p class="hero-home-desc">
+                        {{ .Site.Params.hero_subtitle }}
+                    </p>
+
+                    <div class="hero-home-cta">
+                        <a href="{{ "/research/" | relURL }}" class="px-7 py-3.5 text-sm font-semibold btn-primary sharp inline-flex items-center gap-2">
+                            Explore Expert Vision
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="{{ "/writing/" | relURL }}" class="px-7 py-3.5 text-sm font-semibold btn-outline sharp inline-flex items-center gap-2">
+                            Read Writing
+                            <i class="fa-solid fa-book-open text-xs"></i>
+                        </a>
+                        <a href="#resume" class="hero-home-cta-tertiary">
+                            View credentials
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-home-logo" aria-hidden="true">
+                {{- with resources.Get site.Params.logo -}}
+                {{- $logoLg := .Resize "x360" -}}
+                {{- $logoMd := .Resize "x240" -}}
+                <img
+                    src="{{ $logoLg.RelPermalink }}"
+                    srcset="{{ $logoMd.RelPermalink }} 240w, {{ $logoLg.RelPermalink }} 360w"
+                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 280px, 200px"
+                    alt=""
+                    class="hero-home-logo-img"
+                    width="{{ $logoLg.Width }}"
+                    height="{{ $logoLg.Height }}"
+                    loading="eager"
+                    decoding="async"
+                >
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-section home-section--focus">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="section-intro">
+            <div class="max-w-2xl">
+                <div class="section-label">Focus Areas</div>
+                <h2 class="font-display text-3xl md:text-4xl tracking-tighter mt-2">What I Do</h2>
+                <p class="mt-4 text-sm md:text-base text-muted leading-relaxed">
+                    Where systems engineering meets the science of human expertise — from research frameworks to production platforms.
+                </p>
+            </div>
+        </div>
+
+        <div class="home-focus-profile sharp">
+            <figure class="home-focus-photo">
+                {{ partial "site-image.html" (dict
+                    "src" site.Params.headshot_focus
+                    "alt" site.Params.author
+                    "class" "home-focus-photo-img"
+                    "resize" "640x"
+                    "loading" "lazy"
+                ) }}
+            </figure>
+            <div class="home-focus-profile-copy">
+                <h3 class="home-focus-profile-lead font-display">{{ site.Params.focus_profile_lead }}</h3>
+                <div class="home-focus-profile-prose">
+                    {{ range site.Params.focus_profile_paragraphs }}
+                    <p>{{ . }}</p>
+                    {{ end }}
+                </div>
+                <a href="{{ "/about/" | relURL }}" class="home-focus-profile-link">
+                    About the practice
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="home-focus-groups">
+            <div class="home-focus-group">
+                <p class="section-label home-focus-group-label">Research & Cognition</p>
+                <div class="home-focus-grid">
+                    {{ range $index, $item := where site.Data.featured_areas "category" "research" }}
+                    <a href="{{ $item.url | relURL }}" class="focus-area-card group">
+                        <div class="focus-area-card-head">
+                            <span class="focus-area-index font-mono">{{ printf "%02d" (add $index 1) }}</span>
+                            <span class="focus-area-icon" aria-hidden="true"><i class="fa-solid {{ $item.icon }}"></i></span>
+                        </div>
+                        <h3 class="focus-area-title">{{ $item.title }}</h3>
+                        <p class="focus-area-desc">{{ $item.description }}</p>
+                        <span class="focus-area-link">
+                            Explore
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </span>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+            <div class="home-focus-group">
+                <p class="section-label home-focus-group-label">Platforms & Practice</p>
+                <div class="home-focus-grid">
+                    {{ range $index, $item := where site.Data.featured_areas "category" "practice" }}
+                    <a href="{{ $item.url | relURL }}" class="focus-area-card group">
+                        <div class="focus-area-card-head">
+                            <span class="focus-area-index font-mono">{{ printf "%02d" (add $index 3) }}</span>
+                            <span class="focus-area-icon" aria-hidden="true"><i class="fa-solid {{ $item.icon }}"></i></span>
+                        </div>
+                        <h3 class="focus-area-title">{{ $item.title }}</h3>
+                        <p class="focus-area-desc">{{ $item.description }}</p>
+                        <span class="focus-area-link">
+                            Explore
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </span>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ partial "home-thinking-research.html" . }}
+
+{{ partial "home-work.html" . }}
+
+{{ partial "home-resume.html" . }}
+
+{{ partial "cta-banner.html" . }}
+{{ end }}

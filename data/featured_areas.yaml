@@ -1,0 +1,20 @@
+- icon: fa-brain
+  category: research
+  title: Expert Vision Research
+  description: Investigating how experts perceive, decide, and excel — then translating those patterns into systems that scale.
+  url: /research/
+- icon: fa-project-diagram
+  category: research
+  title: Systems Thinking
+  description: Connecting technology, cognition, and organizational learning across complex, real-world environments.
+  url: /research/systems-thinking/
+- icon: fa-wand-magic-sparkles
+  category: practice
+  title: Enterprise GenAI Adoption
+  description: Production agents, governance frameworks, and team enablement in regulated healthcare and enterprise scale.
+  url: /research/enterprise-genai-adoption/
+- icon: fa-layer-group
+  category: practice
+  title: AI Platforms & Architecture
+  description: Databricks, Snowflake, Kafka, and Go backends — observable, governed platforms built to last.
+  url: /work/platforms/

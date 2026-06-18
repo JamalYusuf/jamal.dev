@@ -1,0 +1,49 @@
+{{- $src := .src -}}
+{{- $resize := .resize | default "1200x" -}}
+{{- $alt := .alt | default site.Params.author -}}
+{{- $class := .class | default "hero-split-img" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $srcset := .srcset -}}
+{{- with resources.Get $src -}}
+  {{- $resource := . -}}
+  {{- $img := $resource -}}
+  {{- if $resize -}}
+    {{- $img = $resource.Resize $resize -}}
+  {{- end -}}
+  {{- if $srcset -}}
+    {{- $srcsetParts := slice -}}
+    {{- range $srcset -}}
+      {{- $variant := $resource.Resize . -}}
+      {{- $srcsetParts = $srcsetParts | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+    {{- end -}}
+    <img
+      src="{{ $img.RelPermalink }}"
+      srcset="{{ delimit $srcsetParts ", " }}"
+      sizes="{{ $sizes }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      loading="eager"
+      decoding="async"
+    >
+  {{- else -}}
+    <img
+      src="{{ $img.RelPermalink }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      loading="eager"
+      decoding="async"
+    >
+  {{- end -}}
+{{- else -}}
+  <img
+    src="{{ $src | relURL }}"
+    alt="{{ $alt }}"
+    class="{{ $class }}"
+    loading="eager"
+    decoding="async"
+  >
+{{- end -}}

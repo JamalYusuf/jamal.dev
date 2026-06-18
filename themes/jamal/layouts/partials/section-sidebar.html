@@ -1,0 +1,60 @@
+{{ $ctx := . }}
+{{ $sectionPage := .Site.GetPage (printf "/%s/" .Section) }}
+<aside class="section-sidebar" aria-label="{{ .Section | humanize }} navigation">
+    <details class="section-sidebar-mobile sharp">
+        <summary class="section-sidebar-mobile-summary font-mono">
+            <span>{{ $sectionPage.Title }}</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </summary>
+        <nav class="section-sidebar-nav">
+            <a href="{{ $sectionPage.RelPermalink }}" class="section-sidebar-back">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                All {{ $sectionPage.Title }}
+            </a>
+
+            {{ if eq .Section "research" }}
+            {{ $pages := where .Site.RegularPages "Section" "research" }}
+            {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" ($pages.ByTitle)) }}
+            {{ else if eq .Section "work" }}
+            {{ $work := .Site.GetPage "/work" }}
+            {{ with $work.RegularPages }}
+            {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" (.ByTitle)) }}
+            {{ end }}
+            {{ range $work.Sections.ByTitle }}
+            <div class="section-sidebar-group">
+                <a href="{{ .RelPermalink }}" class="section-sidebar-group-label section-label{{ if eq .RelPermalink $ctx.RelPermalink }} is-active{{ end }}">{{ .Title }}</a>
+                {{ with .RegularPages }}
+                {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" (.ByTitle)) }}
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ end }}
+        </nav>
+    </details>
+
+    <div class="section-sidebar-desktop card sharp">
+        <div class="section-sidebar-label font-mono">IN THIS SECTION</div>
+        <a href="{{ $sectionPage.RelPermalink }}" class="section-sidebar-back">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            All {{ $sectionPage.Title }}
+        </a>
+
+        {{ if eq .Section "research" }}
+        {{ $pages := where .Site.RegularPages "Section" "research" }}
+        {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" ($pages.ByTitle)) }}
+        {{ else if eq .Section "work" }}
+        {{ $work := .Site.GetPage "/work" }}
+        {{ with $work.RegularPages }}
+        {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" (.ByTitle)) }}
+        {{ end }}
+        {{ range $work.Sections.ByTitle }}
+        <div class="section-sidebar-group">
+            <a href="{{ .RelPermalink }}" class="section-sidebar-group-label section-label{{ if eq .RelPermalink $ctx.RelPermalink }} is-active{{ end }}">{{ .Title }}</a>
+            {{ with .RegularPages }}
+            {{ partial "section-sidebar-links.html" (dict "ctx" $ctx "pages" (.ByTitle)) }}
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+</aside>

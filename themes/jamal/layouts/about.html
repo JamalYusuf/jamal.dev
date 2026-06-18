@@ -1,0 +1,107 @@
+{{ define "main" }}
+<article class="about-page">
+    <div class="max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="about-page-inner">
+
+            <section class="about-hero" aria-labelledby="about-title">
+                <div class="about-hero-grid">
+                    <div class="about-profile-card sharp">
+                        <figure class="about-portrait about-portrait--card">
+                            {{ partial "site-image.html" (dict "src" .Site.Params.headshot_about "alt" .Site.Params.author "class" "about-portrait-img" "resize" "1200x1500") }}
+                        </figure>
+
+                        <div class="about-profile-body">
+                            <div class="about-hero-social">
+                                <a href="{{ .Site.Params.linkedin }}" class="about-hero-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{ .Site.Params.github }}" class="about-hero-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                                </a>
+                                <a href="mailto:{{ .Site.Params.contact_email }}" class="about-hero-social-link" aria-label="Email {{ .Site.Params.contact_email }}">
+                                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                                </a>
+                            </div>
+
+                            {{ range .Params.founder_sections }}
+                            <section class="about-founder-section">
+                                <h2 class="about-founder-title section-label">{{ .title }}</h2>
+                                <div class="about-founder-prose">
+                                    {{ range .paragraphs }}
+                                    <p>{{ . }}</p>
+                                    {{ end }}
+                                </div>
+                            </section>
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    <div class="about-hero-copy">
+                        <p class="section-label">About</p>
+                        <h1 id="about-title" class="about-hero-title font-display">I design systems that last.<br>I study the minds that build them.</h1>
+                        <p class="about-hero-role">{{ .Site.Params.tagline }}</p>
+                        <div class="about-prose">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-story" aria-labelledby="about-story-title">
+                <p id="about-story-title" class="section-label about-story-label">Experience</p>
+
+                <div class="about-story-grid">
+                    <div class="about-panel sharp">
+                        <h2 class="about-panel-title section-header">Professional Journey</h2>
+                        <ol class="about-journey">
+                            {{ range .Params.journey }}
+                            <li class="about-journey-item">
+                                <h3 class="about-journey-role">{{ .role }}</h3>
+                                <p class="about-journey-meta font-mono">{{ .company }} · {{ .dates }}</p>
+                                {{ with .description }}<p class="about-journey-text">{{ . }}</p>{{ end }}
+                            </li>
+                            {{ end }}
+                        </ol>
+                    </div>
+
+                    <div class="about-panel sharp">
+                        <h2 class="about-panel-title section-header">What Drives Me</h2>
+                        <ul class="about-drives">
+                            {{ range .Params.drives }}
+                            <li class="about-drives-item">{{ . }}</li>
+                            {{ end }}
+                        </ul>
+
+                        <div class="about-beliefs">
+                            <h3 class="about-beliefs-title">Core Beliefs</h3>
+                            <ul class="about-beliefs-list">
+                                {{ range .Params.beliefs }}
+                                <li class="about-beliefs-item">{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-resume" id="resume" aria-labelledby="about-resume-title">
+                <div class="about-resume-intro">
+                    <div>
+                        <p class="section-label">Credentials</p>
+                        <h2 id="about-resume-title" class="about-resume-title font-display">Resume</h2>
+                        <p class="about-resume-desc">Full professional history, expertise, and impact — print or save as PDF below.</p>
+                    </div>
+                    <div class="about-resume-actions no-print">
+                        <button type="button" onclick="window.print()" class="btn-outline sharp px-4 py-2 text-sm font-semibold inline-flex items-center gap-2">
+                            <i class="fa-solid fa-print text-xs"></i>
+                            Print / PDF
+                        </button>
+                    </div>
+                </div>
+                {{ partial "resume-document.html" . }}
+            </section>
+
+        </div>
+    </div>
+</article>
+{{ end }}

@@ -1,0 +1,6 @@
+{{- if site.Params.crosshair_cursor | default true -}}
+{{- $js := resources.Get "js/crosshair-cursor.js" -}}
+{{- if $js -}}
+<script src="{{ $js.RelPermalink }}"></script>
+{{- end -}}
+{{- end -}}

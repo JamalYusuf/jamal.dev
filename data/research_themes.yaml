@@ -1,0 +1,25 @@
+home_preview:
+  - label: FRAMEWORK
+    title: Expert Vision
+    description: A proprietary framework combining AI, behavioral analytics, and cognitive science to model and accelerate expert performance across domains.
+    url: /research/expert-vision-framework/
+  - label: CURRENT FOCUS
+    title: Decision-Making Under Pressure
+    description: Studying how experts maintain clarity and performance in high-stakes, time-sensitive environments.
+    url: /research/decision-making-under-pressure/
+  - label: APPLICATION
+    title: Human-AI Collaboration
+    description: Designing AI systems and interfaces that genuinely augment human expertise rather than abstract it.
+    url: /research/human-ai-collaboration/
+
+core_themes:
+  - title: REDLINE Design System
+    description: Sharp geometry, disciplined color, and token-driven interfaces — research into how visual structure supports clarity in professional tools.
+  - title: Expert Performance Modeling
+    description: Capturing and analyzing expert behaviors using Eyegaze and Interactive Minds eye-tracking systems, behavioral analytics, and statistical modeling.
+  - title: AI-Driven Learning Systems
+    description: Improving reading comprehension, mathematical reasoning, and skill acquisition through cognitive science-informed technology.
+  - title: Decision Making Under Pressure
+    description: Studying high-performance decision-making in competitive gaming, esports, and mission-critical environments.
+  - title: Human-AI Collaboration
+    description: Designing interfaces and agentic systems that respect and amplify human cognitive strengths.

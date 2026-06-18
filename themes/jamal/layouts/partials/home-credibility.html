@@ -1,0 +1,12 @@
+{{ $stats := site.Data.resume.stats }}
+
+<div class="home-credibility home-credibility--supporting" aria-label="Professional credentials">
+    <ul class="home-credibility-list">
+        {{ range $stats }}
+        <li class="home-credibility-item">
+            <span class="home-credibility-value">{{ .value }}</span>
+            <span class="home-credibility-label">{{ .label }}</span>
+        </li>
+        {{ end }}
+    </ul>
+</div>

@@ -1,0 +1,9 @@
+{{- $src := .src -}}
+{{- $resize := .resize | default "1920x1080" -}}
+{{- $position := .position | default "center center" -}}
+{{- $mediaClass := .media_class | default "" -}}
+{{- with resources.Get $src -}}
+  {{- $img := .Fill $resize -}}
+  <div class="hero-banner-media{{ with $mediaClass }} {{ . }}{{ end }}" style="background-image: url('{{ $img.RelPermalink }}'); background-position: {{ $position }};"></div>
+  <div class="hero-banner-scrim"></div>
+{{- end -}}

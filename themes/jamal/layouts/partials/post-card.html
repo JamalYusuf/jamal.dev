@@ -1,0 +1,27 @@
+<div class="post-card card sharp overflow-hidden group" data-category="{{ with .Params.filter }}{{ . }}{{ else }}all{{ end }}">
+    {{ partial "article-cover.html" . }}
+    <div class="p-6">
+        <div class="flex items-center gap-2 text-xs mb-3">
+            {{ with .Params.categories }}
+            <span class="px-2.5 py-0.5 sharp text-[10px] font-medium text-white" style="background-color: var(--primary);">{{ index . 0 | upper }}</span>
+            {{ end }}
+            <span class="text-gray-500 font-mono">{{ .Date.Format "Jan 2, 2006" | upper }}</span>
+            {{ with .Params.readingTime }}
+            <span class="text-gray-500">• {{ . }} min</span>
+            {{ end }}
+        </div>
+
+        <h3 class="font-semibold text-2xl tracking-tight leading-tight">
+            <a href="{{ .RelPermalink }}" class="hover:underline" style="color: inherit;">{{ .Title }}</a>
+        </h3>
+
+        <p class="mt-3 text-gray-600 dark:text-gray-400 line-clamp-3 text-[15px]">
+            {{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
+        </p>
+
+        <div class="mt-5 flex items-center justify-between text-sm">
+            <span class="text-gray-500">{{ $.Site.Params.author }}</span>
+            <a href="{{ .RelPermalink }}" class="font-medium hover:underline" style="color: var(--primary);">Read →</a>
+        </div>
+    </div>
+</div>

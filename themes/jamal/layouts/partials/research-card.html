@@ -1,0 +1,13 @@
+<a href="{{ .RelPermalink }}" class="surface-card research-card group">
+    {{ with .Params.research_types }}
+    <div class="research-type">{{ index . 0 | upper }}</div>
+    {{ end }}
+    <h3 class="card-title">{{ .Title }}</h3>
+    <p class="mt-3 text-sm text-muted leading-relaxed flex-grow">
+        {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
+    </p>
+    <span class="card-link">
+        Explore research
+        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+    </span>
+</a>

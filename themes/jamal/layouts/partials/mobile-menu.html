@@ -1,0 +1,15 @@
+<div id="mobile-menu" class="hidden md:hidden border-b" style="background-color: var(--bg); border-color: var(--border);">
+    <div class="px-8 py-6 flex flex-col gap-y-4 text-sm font-medium">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" onclick="toggleMobileMenu()" class="py-1{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} nav-link active{{ end }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+        <div class="pt-4 border-t flex flex-col gap-3" style="border-color: var(--border);">
+            {{ partial "social-links.html" . }}
+            <a href="{{ .Site.Params.linkedin }}" onclick="toggleMobileMenu()"
+               class="block w-full text-center py-3 sharp font-semibold btn-primary"
+               target="_blank" rel="noopener noreferrer">
+                Connect on LinkedIn
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<section class="home-section home-section--muted">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="section-intro">
+            <div class="max-w-2xl">
+                <div class="section-label">Thinking & Research</div>
+                <h2 class="font-display text-3xl md:text-4xl tracking-tighter mt-2">Ideas That Shape the Work</h2>
+                <p class="mt-4 text-sm md:text-base text-muted leading-relaxed">
+                    Expert Vision research and long-form writing on AI systems, human expertise, and the craft of building software that endures.
+                </p>
+            </div>
+            <div class="home-thinking-links shrink-0">
+                <a href="{{ "/research/" | relURL }}" class="section-link">
+                    Research
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="{{ "/writing/" | relURL }}" class="section-link">
+                    Writing
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        {{ $research := site.GetPage "/research" }}
+        <div class="grid md:grid-cols-2 gap-4 md:gap-5 mb-8 md:mb-10">
+            {{ range first 4 $research.Pages }}
+            {{ partial "research-card.html" . }}
+            {{ end }}
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 md:gap-5">
+            {{ range first 3 (where site.RegularPages "Section" "writing") }}
+            <a href="{{ .RelPermalink }}" class="surface-card writing-card">
+                <div class="flex flex-wrap items-center gap-2 text-xs text-muted mb-4">
+                    <span class="font-mono">{{ .Date.Format "Jan 2006" | upper }}</span>
+                    {{ with .Params.categories }}
+                    <span class="tag-sharp">{{ index . 0 }}</span>
+                    {{ end }}
+                </div>
+                <h3 class="font-semibold text-lg tracking-tight leading-snug">{{ .Title }}</h3>
+                <p class="mt-3 text-sm text-muted line-clamp-3 leading-relaxed">
+                    {{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
+                </p>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</section>

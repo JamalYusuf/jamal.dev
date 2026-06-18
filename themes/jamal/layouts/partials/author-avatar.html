@@ -1,0 +1,7 @@
+{{- $size := .size | default "40x40" -}}
+{{- $src := .src | default site.Params.headshot -}}
+{{- $class := printf "author-avatar img-cover sharp %s" (.class | default "") -}}
+{{- with resources.Get $src -}}
+  {{- $img := .Fill $size -}}
+  <img src="{{ $img.RelPermalink }}" alt="{{ site.Params.author }}" class="{{ $class }}" loading="lazy" width="{{ $img.Width }}" height="{{ $img.Height }}">
+{{- end -}}

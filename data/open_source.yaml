@@ -1,0 +1,90 @@
+- title: ChillStep Radio
+  description: A native desktop chillstep and lofi radio — looping visuals, layered ambient sound, Pomodoro focus, and your music stays on your machine.
+  why: I wanted music for deep work without a streaming service deciding what I should hear next. ChillStep Radio is my answer — your library, your atmosphere, your rhythm. No accounts, no cloud, no backend. Just a folder of albums, looping city-night videos, rain layered over chillstep, and a Pomodoro timer that respects the fact that focus is not infinite. It is a small act of sovereignty in an age of rented everything — and a reminder that environment shapes cognition more than we admit.
+  highlights:
+    - Go + Wails v2 desktop app — single executable, native folder picker, internal media server
+    - Directory-based library (music/, videos/, sounds/) — auto-scan, favorites, album modals, ZIP downloads
+    - Layered ambient mixer with per-sound volume, sleep timer with 8-second fade, full keyboard shortcuts
+    - Pomodoro focus timer, todo reminders, session stats — built for late-night coding and rainy afternoons
+  stack: Go · Wails · WebView
+  tag: Go
+  github: https://github.com/JamalYusuf/ChillStep-Radio-Desktop
+  demo: https://jamalyusuf.com/radio/play/
+
+- title: Annotate Pro
+  description: Sharp, minimal webpage annotation — freehand, shapes, laser pointer, screenshots. Built for demos and teaching, not bloat.
+  why: I kept teaching and presenting on live webpages and wishing I could circle a diagram, draw an arrow, or pulse a laser pointer without opening a separate tool or fighting bubbly UI that feels designed for a different species of user. Annotate Pro injects a decisive dark toolbar into whatever page you are on — vector shapes, freehand, eraser, one-click annotated screenshots. Everything stays local. From an Expert Vision angle, it is a tiny window into how people actually mark up structure before detail when they explain something under pressure.
+  highlights:
+    - Manifest V3 Chrome extension — overlay canvas, no network calls, annotations persist until reload
+    - Full shapes palette, pulsing laser pointer, whiteboard/darkboard backgrounds, undo/redo stacks
+    - Dock left or right, responsive sidebar, global shortcut (Cmd/Ctrl+Shift+A) from any tab
+    - Sharp zero-radius design — red accent on true dark surfaces, settings persist across sessions
+  stack: Chrome MV3 · Canvas API
+  tag: Chrome
+  github: https://github.com/JamalYusuf/Annotate-Pro
+  chrome_store: https://chromewebstore.google.com/detail/annotate-pro-%E2%80%94-sharp-anno/cfkihikjijoknncieemigonnhhkifmab
+
+- title: Eyes
+  description: Accessibility modes that actually stick — smart dark, grayscale, sepia, blue light, high contrast, plus live readability controls.
+  why: I was reading long articles at midnight and my eyes were losing the argument. Every site has its own idea of dark mode — some native, some fake, most inconsistent. Eyes tries to be decisive about that negotiation with your visual system. It detects native dark themes where sites already support them (Wikipedia Vector, and others), falls back to thoughtful filter modes where they do not, and gives you line height and letter spacing controls that feel like tuning an instrument rather than flipping a switch.
+  highlights:
+    - Five visual modes — smart dark, grayscale, sepia, blue light, high contrast with live preview
+    - Readability controls — brightness, contrast, font scale, line height (1.0–2.2), letter spacing
+    - Per-site or global settings with custom text, background, and link color overrides
+    - Sharp minimal popup — zero border-radius, red accents, no scrolling needed for core controls
+  stack: Chrome MV3 · CSS filters
+  tag: Chrome
+  github: https://github.com/JamalYusuf/Eyes
+  chrome_store: https://chromewebstore.google.com/detail/eyes/kgiomalgdjfghihollahbpgedhomeppn
+
+- title: White Dot Chaos
+  description: A canvas game about a white dot navigating geometric chaos — with optional quantum randomness from real entropy sources.
+  why: Not every experiment needs a business case. Some need a white dot. This is a canvas game that sounds silly until you sit with it — collide with shapes, collect modifiers, survive escalating madness. The interesting bit is the entropy layer. Flip a switch and the game feeds on quantum random numbers from ANU's QRNG API — true unpredictability from vacuum fluctuations, piped into a browser game. I am curious whether that changes how players decide, whether it expands the perceived possibility space in the brain the way it expands it on screen. I do not have a peer-reviewed answer. I have a hypothesis and a checkbox labeled Use Quantum Entropy.
+  highlights:
+    - Vanilla HTML5 canvas — auto and manual control modes, dynamic UI, modifier collection
+    - Optional quantum entropy via ANU QRNG API — replaces Math.random() with true randomness
+    - Entropy manager with HTTP fetch + fallback pool — compare pseudo vs quantum gameplay
+    - Play instantly in the browser — no install, forkable, built as play-as-research
+  stack: Canvas · Vanilla JS
+  tag: Game
+  github: https://github.com/JamalYusuf/White-Dot-Chaos
+  demo: https://htmlpreview.github.io/?https://github.com/JamalYusuf/White-Dot-Chaos/blob/main/index.html
+
+- title: Chromatic Symphony
+  description: Paint with sound and hear color — a synesthetic playground where frequencies become hues and melodies bloom into light.
+  why: If Expert Vision asks how experts perceive complex environments, Chromatic Symphony asks a playful cousin of that question — what happens when we deliberately blur the channels? Drag across a color gradient and hear frequency. Play a piano where each key has a hue. Compose a melody and watch it bloom into light spectra. It is a love letter to the idea that senses are not as separate as school taught us — built entirely with Web Audio and Canvas, zero dependencies, one HTML file.
+  highlights:
+    - Paint with Sound — drag a color gradient to play tones, visualize waves and light spectra live
+    - 25-key color piano (A3–A5) — each note plays a tone and displays its hue, mouse and touch
+    - Compose and save custom melodies — text-based input, synesthetic playback visuals
+    - Sci-fi aesthetic with responsive design — neon panels, Orbitron type, no external libraries
+  stack: Web Audio · Canvas
+  tag: Web
+  github: https://github.com/JamalYusuf/Chromatic-Symphony
+  demo: https://html-preview.github.io/?url=https://github.com/JamalYusuf/Chromatic-Symphony/blob/main/chromatic_symphony.html
+
+- title: AI Usage Declaration Protocol
+  description: A machine-readable way for websites to declare how AI systems may use their content — as simple as robots.txt, built for the AI era.
+  why: AI companies currently scrape the web with almost no respect for creators' wishes about training data, summarization, or commercial reuse. robots.txt and meta tags are inconsistent or too weak. AUDP is my attempt to give every website owner — from personal bloggers to major publishers — a single machine-readable file that declares clear rules. As simple as placing ai-policy.json in .well-known/. As necessary, I think, as HTTPS once was. Standards do not start in conference rooms alone. They start as a file and a person stubborn enough to document it properly.
+  highlights:
+    - Declares training, summarization, excerpting, and commercial AI reuse preferences in one JSON file
+    - Serve from /.well-known/ai-policy.json, HTTP header, or HTML link rel — v1.0 spec + JSON schema
+    - Reference implementations in Python and JavaScript — fetch before using content
+    - Example policies for news sites, photographers, open source projects, and more
+  stack: JSON · Open Standard
+  tag: Standard
+  github: https://github.com/JamalYusuf/AI-Usage-Declaration-Protocol
+  demo: https://jamalyusuf.github.io/AI-Usage-Declaration-Protocol/
+
+- title: REDLINE Notes
+  description: A sharp, zero-radius Markdown editor that feels like a real code editor — portable, private, VS Code-inspired, no install required.
+  why: Tools shape thought. I wanted a Markdown editor that respected how I already think when I am deep in a problem — keyboard-first, structurally aware, allergic to friction — without installing another app or creating another account. REDLINE Notes opens from a single index.html. Tabs, command palette, workspace folders, live GFM preview, outline navigator. The red accent is not decoration; it is a reminder to write with intent. I write in it. I think in it.
+  highlights:
+    - Single index.html — no install, no accounts, local-first with File System Access API workspace
+    - VS Code-inspired layout — tabs, Open Editors, file tree, context menus, resizable split panes
+    - Command palette (Cmd/Ctrl+K), slash commands, search across workspace, history snapshots for undo
+    - External images saved to assets/ next to .md files — sharp zero-radius light and dark themes
+  stack: CodeMirror · File System Access API
+  tag: Web
+  github: https://github.com/JamalYusuf/REDLINE-Notes
+  demo: https://jamalyusuf.github.io/REDLINE-Notes/

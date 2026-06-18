@@ -1,0 +1,8 @@
+{{- $src := .src -}}
+{{- $resize := .resize | default "2000x840" -}}
+{{- $position := .position | default "center right" -}}
+{{- with resources.Get $src -}}
+  {{- $img := .Fill $resize -}}
+  <div class="hero-home-media" style="background-image: url('{{ $img.RelPermalink }}'); background-position: {{ $position }};"></div>
+  <div class="hero-home-scrim"></div>
+{{- end -}}

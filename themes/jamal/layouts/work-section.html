@@ -1,0 +1,47 @@
+{{ define "main" }}
+{{ partial "section-detail-open.html" . }}
+
+        <div class="flex flex-wrap items-center gap-3 mb-2">
+            {{ with .Params.work_types }}
+            <span class="text-xs font-mono tracking-widest" style="color: var(--primary);">{{ index . 0 | upper }}</span>
+            {{ end }}
+        </div>
+
+        <h1 class="font-display text-5xl md:text-6xl tracking-tighter">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="mt-4 text-xl text-gray-600 dark:text-gray-400">{{ . }}</p>{{ end }}
+
+        {{ if .Content }}
+        <div class="mt-12 blog-content text-gray-600 dark:text-gray-300 leading-relaxed">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        {{ if .Pages }}
+        <h2 class="font-semibold text-2xl mt-16 mb-6">Selected Work</h2>
+        <div class="space-y-6">
+            {{ range .Pages }}
+            <a href="{{ .RelPermalink }}" class="card sharp p-8 block group">
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        {{ with .Params.work_types }}
+                        <div class="text-xs tracking-widest font-medium mb-2" style="color: var(--primary);">{{ index . 0 | upper }}</div>
+                        {{ end }}
+                        <h3 class="font-semibold text-2xl group-hover:underline">{{ .Title }}</h3>
+                        <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">{{ .Params.summary }}</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-xl group-hover:translate-x-1 transition shrink-0 mt-1"></i>
+                </div>
+                {{ with .Params.technologies }}
+                <div class="mt-4 flex flex-wrap gap-2">
+                    {{ range . }}
+                    <span class="px-3 py-0.5 text-xs rounded-full" style="background-color: var(--secondary);">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+{{ partial "section-detail-close.html" . }}
+{{ end }}

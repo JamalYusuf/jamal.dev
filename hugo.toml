@@ -1,0 +1,93 @@
+baseURL = "https://jamal.dev/"
+locale = "en-us"
+title = "Jamal Yusuf"
+theme = "jamal"
+enableRobotsTXT = true
+pygmentsCodeFences = true
+
+[params]
+  site_version = "1.0.0"
+  description = "Principal AI + Backend Systems Engineer — enterprise GenAI platforms, agentic systems, and distributed backend architecture."
+  author = "Jamal Yusuf"
+  tagline = "Principal AI + Backend Systems Engineer"
+  nav_tagline = "indulge your curiosity"
+  linkedin = "https://www.linkedin.com/in/jamal-yusuf"
+  github = "https://github.com/JamalYusuf/"
+  site_repo = "https://github.com/JamalYusuf/jamal.dev"
+  contact_email = "Contact@JamalYusuf.com"
+  hero_badge = "CURRENTLY EXPLORING EXPERT VISION FRAMEWORK"
+  hero_role = "ARCHITECT • RESEARCHER"
+  hero_title = "Building systems that scale."
+  hero_title_accent = "Studying how experts think."
+  hero_subtitle = "Technology leader, architect, researcher, and writer exploring the intersection of software systems, human expertise, and learning."
+  logo = "images/logo/jy-labs-white.png"
+  headshot_about = "images/headshots/headshot-01.png"
+  hero_background = "images/headshots/headshot-11.jpg"
+  hero_videos = ["/hero_vid_1.mp4", "/hero_vid_2.mp4", "/hero_vid_3.mp4"]
+  headshot_research = "images/headshots/headshot-13.jpg"
+  headshot_speaking = "images/headshots/headshot-05.jpg"
+  headshot_focus = "images/headshots/headshot-07.jpg"
+  focus_profile_lead = "Research informs the platforms. Platforms test the research."
+  focus_profile_paragraphs = [
+    "Expert Vision is the research lens — studying how experts perceive, decide, and transfer skill in complex environments. That work shapes how I design agents, data platforms, and governance models in regulated enterprise settings.",
+    "The focus areas below follow that arc: cognition and frameworks on one side, GenAI adoption and platform engineering on the other. The through-line is systems that amplify human expertise — not abstract it.",
+    "Fifteen years in production systems — Go, Kafka, and mission-critical healthcare platforms — keeps that research grounded in what actually ships, scales, and stays governed.",
+  ]
+  og_image = "images/headshots/headshot-03.jpg"
+  crosshair_cursor = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  research_type = "research_types"
+  work_type = "work_types"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = false
+    noClasses = false
+    guessSyntax = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[pagination]
+  pagerSize = 6
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Work"
+  url = "/work/"
+  weight = 3
+
+[[menu.main]]
+  name = "Research"
+  url = "/research/"
+  weight = 4
+
+[[menu.main]]
+  name = "Writing"
+  url = "/writing/"
+  weight = 5
+
+[[menu.main]]
+  name = "Speaking"
+  url = "/speaking/"
+  weight = 6

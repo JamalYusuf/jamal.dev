@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="legal-page">
+    <div class="max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="legal-page-inner">
+            <header class="legal-page-header">
+                <p class="section-label">Legal</p>
+                <h1 class="legal-page-title font-display">{{ .Title }}</h1>
+                {{ with .Params.legal_updated }}
+                <p class="legal-page-updated font-mono">Last updated: {{ . }}</p>
+                {{ end }}
+                {{ with .Description }}
+                <p class="legal-page-summary">{{ . }}</p>
+                {{ end }}
+            </header>
+
+            <div class="legal-prose blog-content">
+                {{ .Content }}
+            </div>
+
+            <footer class="legal-page-footer">
+                <p>Questions? Contact <a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a>.</p>
+                <nav class="legal-page-nav" aria-label="Legal documents">
+                    <a href="{{ "/legal/privacy-policy/" | relURL }}">Privacy Policy</a>
+                    <a href="{{ "/legal/terms-of-use/" | relURL }}">Terms of Use</a>
+                    <a href="{{ "/legal/disclaimer/" | relURL }}">Disclaimer</a>
+                    <a href="{{ "/legal/accessibility/" | relURL }}">Accessibility</a>
+                </nav>
+            </footer>
+        </div>
+    </div>
+</article>
+{{ end }}

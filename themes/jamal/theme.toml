@@ -1,0 +1,12 @@
+name = "Jamal"
+license = "CC-BY-NC-4.0"
+licenselink = "https://creativecommons.org/licenses/by-nc/4.0/"
+description = "Personal portfolio theme for Jamal.dev"
+homepage = "https://jamal.dev"
+tags = ["portfolio", "blog", "minimal"]
+features = ["blog", "dark-mode"]
+min_version = "0.120.0"
+
+[author]
+  name = "Jamal Yusuf"
+  homepage = "https://jamal.dev"

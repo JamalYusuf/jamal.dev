@@ -1,0 +1,70 @@
+badge: Resume 2026
+subtitle: Generative AI Platforms · Agentic Systems · Enterprise Architecture
+location: Charlotte, NC
+
+summary: >
+  Principal Engineer with 15+ years building mission-critical distributed systems in regulated
+  healthcare, telecom, and privacy-sensitive environments — now leading enterprise Generative AI
+  adoption end to end. I design observable, governed AI platforms on Databricks, Snowflake, and
+  AWS Bedrock, and enable teams through hands-on architecture, mentoring, and Claude/OpenAI
+  developer training.
+
+stats:
+  - value: "15+"
+    label: Years in production systems
+  - value: "Enterprise"
+    label: AI platform scale
+  - value: "Regulated"
+    label: Healthcare & compliance
+  - value: "Go since 2011"
+    label: Backend & AI integration
+
+highlights:
+  - title: Enterprise AI adoption
+    text: Led organization-wide Generative AI at Centene — designing production agents and data platforms on Databricks and Snowflake that improved data accuracy, automation, and analytics across engineering teams.
+  - title: Developer enablement
+    text: Scaled AI code assistant programs (Claude / Claude Code, OpenAI) with prompt engineering training and responsible AI practices in a regulated healthcare environment.
+  - title: Systems + AI bridge
+    text: Translated deep distributed systems expertise — Kafka pipelines, microservices, reliability engineering — into production-grade GenAI platforms that are observable, governed, and cost-efficient.
+  - title: Leadership & governance
+    text: Built high-performing teams, established AI governance frameworks, and delivered architecture playbooks that raised capability across backend and AI-augmented development.
+
+expertise:
+  - title: Generative AI & Agentic Systems
+    items:
+      - Multi-agent orchestration & tool calling
+      - RAG architectures & vector search
+      - LLM evaluation & benchmarking
+      - Guardrails & responsible AI patterns
+  - title: AI Platform Engineering
+    items:
+      - Databricks Lakehouse & Mosaic AI
+      - Snowflake Cortex & AI Data Cloud
+      - AWS Bedrock agents & knowledge bases
+      - AI FinOps, observability & tracing
+  - title: Backend Systems
+    items:
+      - Go (production since 2011)
+      - Kafka event-driven architectures
+      - Kubernetes, AWS & microservices
+      - LLM orchestration layers in Go
+
+leadership:
+  - Organizational AI transformation & change leadership
+  - AI governance frameworks & architecture standards
+  - Cross-functional collaboration (Security, SRE, Legal)
+  - Mentoring, knowledge transfer & capability building
+
+roles:
+  - title: Principal AI & Backend Systems Consultant
+    company: Jamal Yusuf LLC
+    dates: Jun 2023 — Present
+    summary: Independent practice focused on Expert Vision research and enterprise AI architecture.
+  - title: Principal Application Development Engineer
+    company: Centene Corp
+    dates: Nov 2024 — May 2026
+    summary: Led organization-wide GenAI adoption, Databricks/Snowflake platforms, and AI governance in healthcare.
+  - title: Lead Application Development Engineer
+    company: Centene Corp
+    dates: Aug 2022 — Nov 2024
+    summary: Rebuilt a 12-person team owning mission-critical membership and payment APIs with Kafka-based pipelines.

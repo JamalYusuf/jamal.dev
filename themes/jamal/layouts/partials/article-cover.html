@@ -1,0 +1,8 @@
+{{- $category := "Writing" -}}
+{{- with .Params.categories -}}
+  {{- $category = index . 0 -}}
+{{- end -}}
+<div class="article-cover sharp" aria-hidden="true">
+    <div class="article-cover-label font-mono">{{ $category | upper }}</div>
+    <div class="article-cover-line"></div>
+</div>

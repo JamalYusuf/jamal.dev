@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{ $delimiter := "<!-- ev-visual-reference -->" }}
+{{ $parts := split .Content $delimiter }}
+{{ $hasSplit := gt (len $parts) 1 }}
+
+{{ partial "section-detail-open.html" . }}
+
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+            {{ with .Params.research_types }}
+            <span class="px-4 py-1 text-xs font-medium tracking-widest sharp" style="background-color: var(--primary); color: white;">{{ index . 0 | upper }}</span>
+            {{ end }}
+            {{ with .Params.status }}
+            <span class="px-3 py-1 text-xs sharp border" style="border-color: var(--border);">{{ . }}</span>
+            {{ end }}
+        </div>
+
+        <h1 class="font-display text-5xl md:text-6xl tracking-tighter">{{ .Title }}</h1>
+        {{ with .Params.summary }}<p class="mt-4 text-xl text-muted">{{ . }}</p>{{ end }}
+
+        {{ if .Content }}
+        <div class="mt-12 blog-content text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            {{ if $hasSplit }}{{ index $parts 0 | safeHTML }}{{ else }}{{ .Content }}{{ end }}
+        </div>
+        {{ end }}
+
+        {{ if $hasSplit }}
+        {{ partial "expert-vision-diagrams.html" . }}
+        {{ end }}
+
+        {{ if and .Content $hasSplit }}
+        <div class="blog-content text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            {{ index $parts 1 | safeHTML }}
+        </div>
+        {{ end }}
+
+        {{ with .Params.methodology }}
+        <div class="mt-12">
+            <h3 id="methodology" class="font-semibold text-xl mb-4">Methodology</h3>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                {{ range . }}
+                <li class="flex gap-x-3"><span style="color: var(--primary);">→</span> {{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+
+        {{ with .Params.applications }}
+        <div class="mt-12">
+            <h3 id="applications" class="font-semibold text-xl mb-4">Applications</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                {{ range . }}
+                <div class="card sharp p-6 text-sm">{{ . }}</div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        {{ with .Params.findings }}
+        <div class="mt-12 p-8 sharp" style="background-color: var(--secondary); border: 1px solid var(--border); border-left: 3px solid var(--primary);">
+            <h3 id="key-findings" class="text-sm font-medium tracking-widest mb-2" style="color: var(--primary);">KEY FINDINGS</h3>
+            <ul class="space-y-3 text-sm">
+                {{ range . }}
+                <li class="flex gap-x-3"><span style="color: var(--primary);">→</span> {{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+
+        {{ if not $hasSplit }}
+        {{ partial "expert-vision-diagrams.html" . }}
+        {{ end }}
+
+{{ partial "section-detail-close.html" . }}
+{{ end }}

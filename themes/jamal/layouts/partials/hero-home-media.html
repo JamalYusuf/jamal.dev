@@ -1,0 +1,27 @@
+{{- $poster := site.Params.hero_background -}}
+{{- $videos := site.Params.hero_videos | default (slice "/hero_vid_1.mp4" "/hero_vid_2.mp4" "/hero_vid_3.mp4") -}}
+{{- $urls := slice -}}
+{{- range $videos -}}
+  {{- $urls = $urls | append (. | relURL) -}}
+{{- end -}}
+{{- $alt := site.Params.author -}}
+
+<div class="hero-home-media">
+    {{ partial "hero-split-media.html" (dict
+        "src" $poster
+        "resize" "1920x"
+        "srcset" (slice "960x" "1440x" "1920x")
+        "sizes" "100vw"
+        "alt" $alt
+        "class" "hero-home-img hero-home-poster"
+    ) }}
+    <video
+        class="hero-home-video"
+        data-sources="{{ $urls | jsonify }}"
+        muted
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        disablepictureinpicture
+    ></video>
+</div>
