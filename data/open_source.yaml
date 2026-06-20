@@ -1,3 +1,16 @@
+- title: BrowserShell
+  description: A terminal-first interface for the browser — tabs, bookmarks, history, downloads, and page actions as Quake-style shell commands.
+  why: I spend my days in terminals and my nights in browsers, and the cognitive gap between them has always bothered me. Menus hide power. Settings bury state. BrowserShell is my attempt to make the browser legible the way Bash makes a filesystem legible — press backtick, run `tabs`, pipe `history | grep react`, browse `/bookmarks` with `ls` and `cd`. Inspired by Quake consoles, Raycast, and the conviction that expert users should not have to hunt through chrome to reach chrome.
+  highlights:
+    - Chrome MV3 extension — Quake-style overlay on any page, 86 built-in commands, tab completion, `man`, and `apropos`
+    - Virtual filesystem for browser state — `/tabs`, `/bookmarks`, `/history`, `ls`, `cd`, `cat`, pipes and shell builtins
+    - Page interaction and privacy commands — `links`, `forget`, `siteinfo`, `ai summarize` (Chrome built-in AI when available)
+    - Testable TypeScript architecture — mockable Chrome API layer, xterm.js terminal, 154 unit/integration tests
+  stack: TypeScript · Chrome MV3 · xterm.js
+  tag: Chrome
+  github: https://github.com/JamalYusuf/BrowserShell
+  demo: https://jamalyusuf.github.io/BrowserShell/
+
 - title: ChillStep Radio
   description: A native desktop chillstep and lofi radio — looping visuals, layered ambient sound, Pomodoro focus, and your music stays on your machine.
   why: I wanted music for deep work without a streaming service deciding what I should hear next. ChillStep Radio is my answer — your library, your atmosphere, your rhythm. No accounts, no cloud, no backend. Just a folder of albums, looping city-night videos, rain layered over chillstep, and a Pomodoro timer that respects the fact that focus is not infinite. It is a small act of sovereignty in an age of rented everything — and a reminder that environment shapes cognition more than we admit.
